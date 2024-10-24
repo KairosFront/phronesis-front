@@ -17,6 +17,7 @@ import NotesButton from "./notes/NotesButton";
 import ModulesAccordion from "./sidebar/ModulesAccordion";
 import { LessonProps } from "@/index";
 import { ModeToggle } from "../ui/toggleMode";
+import NotificationsButton from "../ui/NotificationsButton";
 
 type NavProps = {
   module1: LessonProps[] | undefined;
@@ -55,6 +56,9 @@ const Navbar = ({ module1, module2, module3 }: NavProps) => {
       <div className="flex gap-4 md:gap-8 flex-center">
         <ModeToggle />
         <NotesButton />
+        <NotificationsButton />
+
+
 
         <PopoverForm usage="userinfo" />
 
