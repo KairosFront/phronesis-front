@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Tabs, TabsList, TabsTrigger } from "../ui/tabs";
 import { useSelectNetwork } from "@/hooks/usePortafolio";
+import Image from "next/image";
 
 const NetworkTabs = () => {
   const { setNetwork, network } = useSelectNetwork();
@@ -21,7 +22,19 @@ const NetworkTabs = () => {
              }`}
             value="arb"
           >
-            Arbitrum
+
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/Arbitrum.png"
+                alt="Arbitrum"
+              />
+              <p> Arbitrum</p>
+
+              
+            </div>
+           
           </TabsTrigger>
           <TabsTrigger
             onClick={() => setNetwork("ethereum")}
@@ -29,15 +42,36 @@ const NetworkTabs = () => {
               `}
             value="asja"
           >
-            Ethereum
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/Ethereum.png"
+                alt="Arbitrum"
+              />
+              <p> Ethereum</p>
+
+              
+            </div>
           </TabsTrigger>
           <TabsTrigger
             onClick={() => setNetwork("scroll")}
-            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+            className={`border border-black/40 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
             value="advja"
           >
-            Scroll
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/Scroll.png"
+                alt="Arbitrum"
+              />
+              <p> Scroll</p>
+
+              
+            </div>
+            
           </TabsTrigger>
           <TabsTrigger
             onClick={() => setNetwork("optimism")}
@@ -45,7 +79,17 @@ const NetworkTabs = () => {
              `}
             value="asdja"
           >
-            Optimism
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/Optimism.png"
+                alt="Arbitrum"
+              />
+              <p> Optimism</p>
+
+              
+            </div>
           </TabsTrigger>
           <TabsTrigger
             onClick={() => setNetwork("polygon")}
@@ -53,7 +97,17 @@ const NetworkTabs = () => {
              `}
             value="adjaa"
           >
-            Polygon
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/Polygon.png"
+                alt="Arbitrum"
+              />
+              <p> Polygon</p>
+
+              
+            </div>
           </TabsTrigger>
           <TabsTrigger
             onClick={() => setNetwork("base")}
@@ -61,7 +115,17 @@ const NetworkTabs = () => {
              `}
             value="adeja"
           >
-            Base
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/Base.png"
+                alt="Arbitrum"
+              />
+              <p> Base</p>
+
+              
+            </div>
           </TabsTrigger>
         </TabsList>
       </Tabs>
