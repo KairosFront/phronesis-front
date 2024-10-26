@@ -31,21 +31,21 @@ export async function middleware(req: NextRequest) {
   if (!definitelyAuthenticated && maybeAuthenticated) {
     // If user is not authenticated, but is maybe authenticated
     // redirect them to the `/refresh` page to trigger client-side refresh flow
-    console.log("redirecting ", req.url);
+   
 
     const url = new URL("/", req.url);
-    console.log("url ", url);
+   
 
     const pathname = url.href;
-    console.log("pathname ", pathname);
+    
     const c = req.url.replace(pathname, "");
-    console.log("Base ", c);
+   
 
     return NextResponse.redirect(new URL(`/refresh?page=${c}`, pathname));
   }
 
   if (req.nextUrl.pathname.startsWith("/dashboard")) {
-    console.log(definitelyAuthenticated);
+    
     if (!definitelyAuthenticated) {
       // Only redirect if the user is not already on the '/' route
       if (!(req.nextUrl.pathname === "/")) {
