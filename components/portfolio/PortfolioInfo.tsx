@@ -7,19 +7,24 @@ import { Balances } from "@/index";
 import SkeletonTable from "../shared/skeletons/SkeletonTable";
 import { useSelectNetwork } from "@/hooks/usePortafolio";
 
-const PortfolioInfo = () => {
+
+interface PortfolioInfoProps {
+  wallet: string;
+}
+
+const PortfolioInfo = ({wallet}: PortfolioInfoProps) => {
   const { network } = useSelectNetwork();
 
-  const [address, setAddress] = React.useState("");
+  // const [address, setAddress] = React.useState("");
   const [tokensData, setTokensData] = React.useState<Balances[]>();
   const [loading, setLoading] = React.useState(false);
-  React.useEffect(() => {
-    const addr = window.localStorage.getItem("wallet");
-    if (typeof window !== "undefined" && addr != null) {
-      setAddress(addr);
-    }
-  }, []);
-  const { portafolio, isLoading } = usePortafolio(address);
+  // React.useEffect(() => {
+  //   const addr = window.localStorage.getItem("wallet");
+  //   if (typeof window !== "undefined" && addr != null) {
+  //     setAddress(addr);
+  //   }
+  // }, []);
+  const { portafolio, isLoading } = usePortafolio(wallet);
 
   useEffect(() => {
     if (isLoading) {
