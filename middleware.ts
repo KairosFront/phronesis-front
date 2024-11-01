@@ -2,11 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 // Replace this array with an array of paths for pages in your app that do not require the
 // user to be authenticated, e.g. a login page
-const UNAUTHENTICATED_PAGES = [];
+const UNAUTHENTICATED_PAGES = ["/"];
 
 export const config = {
   // necessary to ensure that you are redirected to the refresh page
-  matcher: ["/", "/dashboard", "/refresh", "/data-on-chain"],
+  matcher: ["/dashboard", "/refresh", "/data-on-chain","/portfolio", "/portfolio/:path*"],
 };
 
 export async function middleware(req: NextRequest) {
@@ -27,6 +27,12 @@ export async function middleware(req: NextRequest) {
   // If user has `privy-session`, they also have `privy-refresh-token` and
   // may be authenticated once their session is refreshed in the client
   const maybeAuthenticated = Boolean(cookieSession);
+
+  //if user is not authenticated, go to login page
+  if (!definitelyAuthenticated && !maybeAuthenticated) {
+    // If user is not authenticated, redirect them to the `/` page
+    return NextResponse.redirect(new URL("/", req.url));
+  }
 
   if (!definitelyAuthenticated && maybeAuthenticated) {
     // If user is not authenticated, but is maybe authenticated

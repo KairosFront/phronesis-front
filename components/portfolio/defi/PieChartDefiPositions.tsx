@@ -20,10 +20,15 @@ import { useDefiPositions } from "@/hooks/usePortafolio";
 import { BalancesDefi, BalancesDefiInPie } from "@/index";
 import { useSelectNetwork } from "@/hooks/usePortafolio";
 
-const ChartDefiPositions = () => {
+interface ChartDefiPositionsProps {
+  wallet: string;
+}
+
+
+const ChartDefiPositions = ({wallet}: ChartDefiPositionsProps) => {
   const { network } = useSelectNetwork();
 
-  const [address, setAddress] = React.useState("");
+  // const [address, setAddress] = React.useState("");
   const [chartData, setChartData] = React.useState<BalancesDefiInPie[]>([]);
   const [loading, setLoading] = React.useState(false);
 
@@ -35,14 +40,14 @@ const ChartDefiPositions = () => {
     return updatedBalancesObj;
   }
 
-  React.useEffect(() => {
-    const addr = window.localStorage.getItem("wallet");
-    if (typeof window !== "undefined" && addr != null) {
-      setAddress(addr);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const addr = window.localStorage.getItem("wallet");
+  //   if (typeof window !== "undefined" && addr != null) {
+  //     setAddress(addr);
+  //   }
+  // }, []);
 
-  const { defiPositions, isLoading } = useDefiPositions(address);
+  const { defiPositions, isLoading } = useDefiPositions(wallet);
 
   useEffect(() => {
     if (isLoading) {
