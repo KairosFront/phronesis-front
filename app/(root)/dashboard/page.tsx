@@ -15,6 +15,7 @@ import { getLessons } from "@/services/backend/lessons";
 import AddProjectButton from "@/components/dashboard/AddProjectButton";
 import { getProjectsList } from "@/services/backend/proyectsInfo";
 import Link from "next/link";
+import NotificationsDialog from "@/components/shared/notifications/NotificationsDialog";
 // import ReloadProjects from "@/components/dashboard/ReloadProjects";
 
 const HomePage = async () => {
@@ -34,6 +35,7 @@ const HomePage = async () => {
   return (
     <div>
       <DialogInstructions />
+      <NotificationsDialog />
 
       <section className="seguimiento mb-8">
         <div className="flex items-center justify-between mt-4">

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { handleLogin } from "@/actions/login";
 import { handleRegister } from "@/actions/register";
 // import { useUserData} from "@/hooks/useUserData"
-import { useDialogInstructions } from "@/hooks/useDialogs";
+import { useDialogInstructions, useDialogNotifications } from "@/hooks/useDialogs";
 import { useAuthLoadingStatus } from "@/hooks/useLoading";
 import { useWallets } from "@privy-io/react-auth";
 
@@ -13,6 +13,7 @@ function PrivyProviderWrapper({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   // const {setUserId} = useUserData();
   const { setIsOpenInstr } = useDialogInstructions();
+  const { setNumberOfAccess } = useDialogNotifications();
   const { setIsLoading } = useAuthLoadingStatus();
   return (
     <PrivyProvider
@@ -54,6 +55,16 @@ function PrivyProviderWrapper({ children }: { children: React.ReactNode }) {
               } else {
                 if (typeof window !== "undefined" && data !== null) {
                   window.localStorage.setItem("guzma", data.toString());
+
+                  if(window.localStorage.getItem("sessionNumberVersion9") === null) {
+                    window.localStorage.setItem("sessionNumberVersion9", "0");
+                    window.localStorage.removeItem("sessionNumberVersion1");
+                    setNumberOfAccess(0);
+                  } else{
+                    setNumberOfAccess(1)
+                  }
+                  
+                  
                   if (user.wallet?.address) {
                     window.localStorage.setItem("wallet", user.wallet.address);
                   }
