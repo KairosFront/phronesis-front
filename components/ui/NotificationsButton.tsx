@@ -20,12 +20,16 @@ const NotificationsButton = () => {
 
       </PopoverTrigger>
       <PopoverContent className='text-sm '>
-        <h2>Actualizaciones:</h2>
+        <h2>Actualizaciones recientes:</h2>
         <div>
           <ul>
-            <li>Se ha actualizado el módulo de análisis</li>
-            <li>Se ha actualizado el módulo de comparativa</li>
-            <li>Se ha actualizado el módulo de dashboard</li>
+          <li>
+                        Implementamos este nuevo sistema de notificaciones para mantenerte informado sobre las actualizaciones de la aplicación!
+                    </li>
+                    <li>
+                        Nueva página principal de portfolio pensada para agregar más de una wallet (actualmente solo en diseño).
+                    </li>
+            
           </ul>
         </div>
       </PopoverContent>

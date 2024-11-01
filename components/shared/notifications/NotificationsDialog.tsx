@@ -45,7 +45,7 @@ const NotificationsDialog = () => {
                     <Image src="/dark/icons/ui/notification-dark.svg" alt="Notifications" width={24} height={24} className='hidden dark:inline' />
                     <Image src="/icons/ui/notification.svg" alt="Notifications" width={24} height={24} className='dark:hidden inline' />
                 </div>
-                <DialogTitle>Bienvenido, te informamos sobre las actualizaciones nuevas - version 9:</DialogTitle>
+                <DialogTitle>Bienvenido, te informamos sobre nuevas actualizaciones:</DialogTitle>
 
                 <X
                 className="absolute top-2 right-2 cursor-pointer hover:text-red-500"
@@ -60,13 +60,10 @@ const NotificationsDialog = () => {
             <div className='text-sm pl-6'>
             <ul>
                     <li>
-                        Se ha actualizado el módulo de análisis
+                        Implementamos este nuevo sistema de notificaciones para mantenerte informado sobre las actualizaciones de la aplicación!
                     </li>
                     <li>
-                        Se ha actualizado el módulo de comparativa
-                    </li>
-                    <li>
-                        Se ha actualizado el módulo de dashboard
+                        Nueva página principal de portfolio pensada para agregar más de una wallet (actualmente solo en diseño).
                     </li>
                 </ul>
             </div>
