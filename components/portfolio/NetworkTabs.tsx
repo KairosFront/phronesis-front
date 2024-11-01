@@ -39,7 +39,7 @@ const NetworkTabs = () => {
           >
             Scroll
           </TabsTrigger>
-          <TabsTrigger
+          {/* <TabsTrigger
             onClick={() => setNetwork("optimism")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
@@ -62,7 +62,7 @@ const NetworkTabs = () => {
             value="adeja"
           >
             Base
-          </TabsTrigger>
+          </TabsTrigger> */}
         </TabsList>
       </Tabs>
       {/* <Button variant={'outline'} size={"lg"} className='text-2xl bg-transparent text-primary font-bold dark:text-white'>Ethereum</Button>
