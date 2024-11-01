@@ -40,10 +40,10 @@ const page = () => {
                 <Carousel className="my-10 px-20" opts={{ loop: true }}>
                     <CarouselPrevious/>
                     <CarouselContent>
-                        <CarouselItem className='flex justify-center basis-1/4'>
+                        <CarouselItem className='flex justify-center'>
                            <WalletsCarrousel/>
                         </CarouselItem>
-                        <CarouselItem className='flex justify-center basis-1/4'>
+                        {/* <CarouselItem className='flex justify-center basis-1/5'>
                            <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
                                 <CardContent>
                                     <h3>Wallet 1</h3>
@@ -51,7 +51,7 @@ const page = () => {
                                     </CardContent>
                             </Card>
                         </CarouselItem>
-                        <CarouselItem className='flex justify-center basis-1/4'>
+                        <CarouselItem className='flex justify-center basis-1/5'>
                            <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
                                 <CardContent>
                                     <h3>Wallet 1</h3>
@@ -59,7 +59,7 @@ const page = () => {
                                     </CardContent>
                             </Card>
                         </CarouselItem>
-                        <CarouselItem className='flex justify-center basis-1/4'>
+                        <CarouselItem className='flex justify-center basis-1/5'>
                            <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
                                 <CardContent>
                                     <h3>Wallet 1</h3>
@@ -67,7 +67,7 @@ const page = () => {
                                     </CardContent>
                             </Card>
                         </CarouselItem>
-                        <CarouselItem className='flex justify-center basis-1/4'>
+                        <CarouselItem className='flex justify-center basis-1/5'>
                            <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
                                 <CardContent>
                                     <h3>Wallet 1</h3>
@@ -75,14 +75,14 @@ const page = () => {
                                     </CardContent>
                             </Card>
                         </CarouselItem>
-                        <CarouselItem className='flex justify-center basis-1/4'>
+                        <CarouselItem className='flex justify-center basis-1/5'>
                            <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
                                 <CardContent>
                                     <h3>Wallet 1</h3>
                                     <p>Balance: 0.00</p>
                                     </CardContent>
                             </Card>
-                        </CarouselItem>
+                        </CarouselItem> */}
                     
                     
 

@@ -18,7 +18,7 @@ const WalletsCarrousel = () => {
     {wallet ? (
         
     <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45 '>
-                                <CardContent className="font-extrabold">
+                                <CardContent className="font-extrabold flex flex-col justify-center gap-4">
                                 <Link href={`/portfolio/${wallet}`}>
                                     
                                         {(wallet?.length ?? 0 > 10)
