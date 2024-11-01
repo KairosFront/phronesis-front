@@ -17,22 +17,23 @@ import { Button } from '@/components/ui/button';
 import { useDialogNotifications } from '@/hooks/useDialogs';
 const NotificationsDialog = () => {
     const [isOpen, setIsOpen] = React.useState(false);
-    const { setNumberOfAccess, numberOfAccess } = useDialogNotifications();
+    // const { setNumberOfAccess, numberOfAccess } = useDialogNotifications();
 
     React.useEffect(() => {
-        let numberToCheck: number;
-        
-        numberToCheck = numberOfAccess +1;
+        const numberSession = Number(window.localStorage.getItem('sessionNumberVersion9'));
+        const numberSummed = numberSession + 1;
+        window.localStorage.setItem('sessionNumberVersion9',  numberSummed.toString());
+    }, []);
 
-        setNumberOfAccess(numberOfAccess + 1)
-        
-
-
-        if(numberToCheck === 1){
-           
-            setIsOpen(true);
-        }
-
+    React.useEffect(() => {
+        //Setting some time for the other useEffect to run first
+        setTimeout(() => {
+            const numberSession = Number(window.localStorage.getItem('sessionNumberVersion9'));
+            console.log('Numero de sesión en segundo useEffect', numberSession);
+            if(numberSession === 2){
+                setIsOpen(true);
+            }
+        } , 700);
     }, []);
   return (
     <>

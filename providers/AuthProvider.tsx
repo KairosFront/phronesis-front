@@ -56,12 +56,14 @@ function PrivyProviderWrapper({ children }: { children: React.ReactNode }) {
                 if (typeof window !== "undefined" && data !== null) {
                   window.localStorage.setItem("guzma", data.toString());
 
-                  if(window.localStorage.getItem("sessionNumberVersion9") === null) {
+                  const sessionNumber = window.localStorage.getItem("sessionNumberVersion9");
+
+                  if(typeof(sessionNumber) === "undefined" || sessionNumber === null) {
                     window.localStorage.setItem("sessionNumberVersion9", "0");
                     window.localStorage.removeItem("sessionNumberVersion1");
                     setNumberOfAccess(0);
                   } else{
-                    setNumberOfAccess(1)
+                    window.localStorage.setItem("sessionNumberVersion9", "1");
                   }
                   
                   
