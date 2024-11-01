@@ -30,7 +30,7 @@ const NotificationsDialog = () => {
         setTimeout(() => {
             const numberSession = Number(window.localStorage.getItem('sessionNumberVersion9'));
             console.log('Numero de sesión en segundo useEffect', numberSession);
-            if(numberSession === 2){
+            if(numberSession === 1){
                 setIsOpen(true);
             }
         } , 700);
