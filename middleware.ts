@@ -6,7 +6,7 @@ const UNAUTHENTICATED_PAGES = ["/"];
 
 export const config = {
   // necessary to ensure that you are redirected to the refresh page
-  matcher: ["/dashboard", "/refresh", "/data-on-chain","/portfolio", "/portfolio/:path*"],
+  matcher: ["/", "/dashboard", "/refresh", "/data-on-chain","/portfolio", "/portfolio/:path*"],
 };
 
 export async function middleware(req: NextRequest) {
@@ -22,12 +22,14 @@ export async function middleware(req: NextRequest) {
   // we will enter an infinite loop
   if (req.url.includes("/refresh")) return NextResponse.next();
 
+  
+
   // If the user has `privy-token`, they are definitely authenticated
   const definitelyAuthenticated = Boolean(cookieAuthToken);
   // If user has `privy-session`, they also have `privy-refresh-token` and
   // may be authenticated once their session is refreshed in the client
   const maybeAuthenticated = Boolean(cookieSession);
-
+  if(req.url === "/" && definitelyAuthenticated) return NextResponse.redirect(new URL("/dashboard", req.url));
   //if user is not authenticated, go to login page
   if (!definitelyAuthenticated && !maybeAuthenticated) {
     // If user is not authenticated, redirect them to the `/` page
