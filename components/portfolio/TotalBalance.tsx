@@ -55,6 +55,16 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
           break;
         case "base":
           setBalance(portafolio.base.TotalBalance);
+          break;
+        case "linea":
+          setBalance(portafolio.linea.TotalBalance);
+          break;
+        case "avalanche":
+          setBalance(portafolio.avalanche.TotalBalance);
+          break;
+        case "gnosis":
+          setBalance(portafolio.gnosis.TotalBalance);
+          break;
       }
     }
     if (section === "defi" && defiPositions) {
@@ -76,6 +86,16 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
           break;
         case "optimism":
           setBalance(defiPositions.optimism.totalBalance);
+          break;
+        case "linea":
+          setBalance(defiPositions.linea.totalBalance);
+          break;
+        case "avalanche":
+          setBalance(defiPositions.avalanche.totalBalance);
+          break;
+        case "gnosis":
+          setBalance(defiPositions.gnosis.totalBalance);
+          break;  
       }
     }
   }, [portafolio, network]);

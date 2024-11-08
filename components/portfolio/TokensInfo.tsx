@@ -44,6 +44,24 @@ const TokensInfo = ({wallet}: TokensInfoProps) => {
         case "scroll":
           setTokensData(portafolio.scroll.Balances);
           break;
+        case "polygon":
+          setTokensData(portafolio.polygon.Balances);
+          break;
+        case "base":
+          setTokensData(portafolio.base.Balances);
+          break;
+        case "optimism":
+          setTokensData(portafolio.optimism.Balances);
+          break;
+        case "linea":
+          setTokensData(portafolio.linea.Balances);
+          break;
+        case "avalanche":
+          setTokensData(portafolio.avalanche.Balances);
+          break;
+        case "gnosis":
+          setTokensData(portafolio.gnosis.Balances);
+          break;
       }
     }
   }, [portafolio, network]);

@@ -68,6 +68,15 @@ const DefiPositionsCategories = ({wallet}: DefiPositionsCategoriesProps) => {
         case "base":
           setPositions(defiPositions.base.protocols);
           break;
+        case "linea":
+          setPositions(defiPositions.linea.protocols);
+          break;
+        case "avalanche":
+          setPositions(defiPositions.avalanche.protocols);
+          break;
+        case "gnosis":
+          setPositions(defiPositions.gnosis.protocols);
+          break;
       }
       setEmpty(false);
     } else {

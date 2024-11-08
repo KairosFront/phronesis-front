@@ -44,6 +44,10 @@ interface BalancesResponse {
   base: { Balances: Balances[]; TotalBalance: number };
   polygon: { Balances: Balances[]; TotalBalance: number };
   optimism: { Balances: Balances[]; TotalBalance: number };
+  //Linea, avalanche y gnosis
+  linea: { Balances: Balances[]; TotalBalance: number };
+  avalanche: { Balances: Balances[]; TotalBalance: number };
+  gnosis: { Balances: Balances[]; TotalBalance: number };
 }
 
 // Positions Defi Types and interfaces
@@ -67,6 +71,9 @@ interface DefiPositions {
   ArbPositions: EachNetwork[];
   ScrollPositions: EachNetwork[];
   EthereumPositions: EachNetwork[];
+  LineaPositions: EachNetwork[];
+  AvalanchePositions: EachNetwork[];
+  GnosisPostions: EachNetwork[];
 }
 
 export type EntriesFromResponseType = [string, Protocol[]];

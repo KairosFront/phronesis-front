@@ -77,6 +77,15 @@ const ChartDefiPositions = ({wallet}: ChartDefiPositionsProps) => {
         case "base":
           setChartData(colorAsigner(defiPositions.base.totalBalanceArray));
           break;
+        case "linea":
+          setChartData(colorAsigner(defiPositions.linea.totalBalanceArray));
+          break;
+        case "avalanche":
+          setChartData(colorAsigner(defiPositions.avalanche.totalBalanceArray));
+          break;
+        case "gnosis":
+          setChartData(colorAsigner(defiPositions.gnosis.totalBalanceArray));
+          break;
       }
     }
   }, [defiPositions, network]);

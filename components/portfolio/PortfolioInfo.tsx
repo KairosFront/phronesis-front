@@ -54,6 +54,15 @@ const PortfolioInfo = ({wallet}: PortfolioInfoProps) => {
         case "optimism":
           setTokensData(portafolio.optimism.Balances);
           break;
+        case "linea":
+          setTokensData(portafolio.linea.Balances);
+          break;
+        case "avalanche":
+          setTokensData(portafolio.avalanche.Balances);
+          break;
+        case "gnosis":
+          setTokensData(portafolio.gnosis.Balances);
+          break;
       }
     }
   }, [portafolio, network]);

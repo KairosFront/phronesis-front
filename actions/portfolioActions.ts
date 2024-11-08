@@ -13,6 +13,9 @@ export const handleGetBalances = async (walletAddress: string) => {
       base: response.base,
       polygon: response.polygon,
       optimism: response.optimisum,
+      linea: response.linea,
+      avalanche: response.avalanche,
+      gnosis: response.gnosis,
     };
   } catch (err: any) {
     console.error(err.message);
@@ -42,6 +45,16 @@ export const handleGetPositions = async (walletAddress: string) => {
       response.OptimisumPositions[0].original,
     ) as EntriesFromResponseType[];
 
+    const linea = Object.entries(
+      response.LineaPositions[0].original,
+    ) as EntriesFromResponseType[];
+    const avalanche = Object.entries(
+      response.AvalanchePositions[0].original,
+    ) as EntriesFromResponseType[];
+    const gnosis = Object.entries(
+      response.GnosisPostions[0].original,
+    ) as EntriesFromResponseType[];
+
     // Función para sumar los balances de cada posición
     const sumBalances = async (entries: EntriesFromResponseType[]) => {
       return Promise.all(
@@ -64,6 +77,11 @@ export const handleGetPositions = async (walletAddress: string) => {
     const totalBalanceBaseArray = await sumBalances(base);
     const totalBalancePolygonArray = await sumBalances(polygon);
     const totalBalanceOptimismArray = await sumBalances(optimism);
+
+    const totalBalanceLineaArray = await sumBalances(linea);
+    const totalBalanceAvalancheArray = await sumBalances(avalanche);
+    const totalBalanceGnosisArray = await sumBalances(gnosis);
+
 
     // Verificar los resultados intermedios
 
@@ -92,6 +110,19 @@ export const handleGetPositions = async (walletAddress: string) => {
       0,
     );
     const totalBalanceOptimism = totalBalanceOptimismArray.reduce(
+      (acc, obj) => acc + obj.totalBalance,
+      0,
+    );
+
+    const totalBalanceLinea = totalBalanceLineaArray.reduce(
+      (acc, obj) => acc + obj.totalBalance,
+      0,
+    );
+    const totalBalanceAvalanche = totalBalanceAvalancheArray.reduce(
+      (acc, obj) => acc + obj.totalBalance,
+      0,
+    );
+    const totalBalanceGnosis = totalBalanceGnosisArray.reduce(
       (acc, obj) => acc + obj.totalBalance,
       0,
     );
@@ -132,6 +163,22 @@ export const handleGetPositions = async (walletAddress: string) => {
         totalBalance: totalBalanceOptimism,
         totalBalanceArray: totalBalanceOptimismArray,
         protocols: optimism,
+      },
+      //Linea, avalanche & gnosis
+      linea: {
+        totalBalance: totalBalanceLinea,
+        totalBalanceArray: totalBalanceLineaArray,
+        protocols: linea,
+      },
+      avalanche: {
+        totalBalance: totalBalanceAvalanche,
+        totalBalanceArray: totalBalanceAvalancheArray,
+        protocols: avalanche,
+      },
+      gnosis: {
+        totalBalance: totalBalanceGnosis,
+        totalBalanceArray: totalBalanceGnosisArray,
+        protocols: gnosis,
       },
     };
   } catch (error: any) {

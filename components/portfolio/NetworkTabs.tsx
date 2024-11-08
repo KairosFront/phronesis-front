@@ -127,6 +127,60 @@ const NetworkTabs = () => {
               
             </div>
           </TabsTrigger>
+          <TabsTrigger
+            onClick={() => setNetwork("linea")}
+            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+             `}
+            value="adeja"
+          >
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/linea.png"
+                alt="Linea"
+              />
+              <p> Linea</p>
+
+              
+            </div>
+          </TabsTrigger>
+          <TabsTrigger
+            onClick={() => setNetwork("avalanche")}
+            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+             `}
+            value="adeja"
+          >
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src=""
+                alt="Avalanche"
+              />
+              <p> Avalanche</p>
+
+              
+            </div>
+          </TabsTrigger>
+          <TabsTrigger
+            onClick={() => setNetwork("gnosis")}
+            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+             `}
+            value="adeja"
+          >
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src=""
+                alt="Gnosis"
+              />
+              <p> Gnosis</p>
+
+              
+            </div>
+          </TabsTrigger>
         </TabsList>
       </Tabs>
       {/* <Button variant={'outline'} size={"lg"} className='text-2xl bg-transparent text-primary font-bold dark:text-white'>Ethereum</Button>

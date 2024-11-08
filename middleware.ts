@@ -29,13 +29,7 @@ export async function middleware(req: NextRequest) {
   // If user has `privy-session`, they also have `privy-refresh-token` and
   // may be authenticated once their session is refreshed in the client
   const maybeAuthenticated = Boolean(cookieSession);
-  if(req.url === "/" && definitelyAuthenticated) return NextResponse.redirect(new URL("/dashboard", req.url));
-  //if user is not authenticated, go to login page
-  if (!definitelyAuthenticated && !maybeAuthenticated) {
-    // If user is not authenticated, redirect them to the `/` page
-    return NextResponse.redirect(new URL("/", req.url));
-  }
-
+ 
   if (!definitelyAuthenticated && maybeAuthenticated) {
     // If user is not authenticated, but is maybe authenticated
     // redirect them to the `/refresh` page to trigger client-side refresh flow

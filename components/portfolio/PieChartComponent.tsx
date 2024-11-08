@@ -75,6 +75,16 @@ const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
           break;
         case "base":
           setChartData(colorAsigner(portafolio.base.Balances));
+          break;
+        case "linea":
+          setChartData(colorAsigner(portafolio.linea.Balances));
+          break;
+        case "avalanche":
+          setChartData(colorAsigner(portafolio.avalanche.Balances));
+          break;
+        case "gnosis":
+          setChartData(colorAsigner(portafolio.gnosis.Balances));
+          break;
       }
     }
   }, [portafolio, network]);
