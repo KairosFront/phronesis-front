@@ -56,9 +56,9 @@ const DefiPositionsCategories = ({wallet}: DefiPositionsCategoriesProps) => {
         case "arbitrum":
           setPositions(defiPositions.arbitrum.protocols);
           break;
-        case "scroll":
-          setPositions(defiPositions.scroll.protocols);
-          break;
+        // case "scroll":
+        //   setPositions(defiPositions.scroll.protocols);
+        //   break;
         case "polygon":
           setPositions(defiPositions.polygon.protocols);
           break;

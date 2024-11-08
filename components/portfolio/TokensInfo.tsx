@@ -41,9 +41,9 @@ const TokensInfo = ({wallet}: TokensInfoProps) => {
         case "arbitrum":
           setTokensData(portafolio.arbitrum.Balances);
           break;
-        case "scroll":
-          setTokensData(portafolio.scroll.Balances);
-          break;
+        // case "scroll":
+        //   setTokensData(portafolio.scroll.Balances);
+        //   break;
         case "polygon":
           setTokensData(portafolio.polygon.Balances);
           break;

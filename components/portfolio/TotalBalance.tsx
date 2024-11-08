@@ -44,9 +44,9 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
         case "arbitrum":
           setBalance(portafolio.arbitrum.TotalBalance);
           break;
-        case "scroll":
-          setBalance(portafolio.scroll.TotalBalance);
-          break;
+        // case "scroll":
+        //   setBalance(portafolio.scroll.TotalBalance);
+        //   break;
         case "polygon":
           setBalance(portafolio.polygon.TotalBalance);
           break;
@@ -75,9 +75,9 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
         case "arbitrum":
           setBalance(defiPositions.arbitrum.totalBalance);
           break;
-        case "scroll":
-          setBalance(defiPositions.scroll.totalBalance);
-          break;
+        // case "scroll":
+        //   setBalance(defiPositions.scroll.totalBalance);
+        //   break;
         case "base":
           setBalance(defiPositions.base.totalBalance);
           break;

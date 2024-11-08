@@ -6,9 +6,9 @@ export const handleGetBalances = async (walletAddress: string) => {
   try {
     console.log("Hace la llamada a getBalances");
     const response = await getBalances(walletAddress);
+    console.log('Respuesta:', response);
     return {
       arbitrum: response.arbitrum,
-      scroll: response.scroll,
       ethereum: response.etehereum,
       base: response.base,
       polygon: response.polygon,
@@ -28,9 +28,9 @@ export const handleGetPositions = async (walletAddress: string) => {
     const arbitrum = Object.entries(
       response.ArbPositions[0].original,
     ) as EntriesFromResponseType[];
-    const scroll = Object.entries(
-      response.ScrollPositions[0].original,
-    ) as EntriesFromResponseType[];
+    // const scroll = Object.entries(
+    //   response.ScrollPositions[0].original,
+    // ) as EntriesFromResponseType[];
     const ethereum = Object.entries(
       response.EthereumPositions[0].original,
     ) as EntriesFromResponseType[];
@@ -71,7 +71,7 @@ export const handleGetPositions = async (walletAddress: string) => {
 
     // Sumar los balances de cada red
     const totalBalanceArbitrumArray = await sumBalances(arbitrum);
-    const totalBalanceScrollArray = await sumBalances(scroll);
+    // const totalBalanceScrollArray = await sumBalances(scroll);
     const totalBalanceEthereumArray = await sumBalances(ethereum);
     //Base, polygon and optimism
     const totalBalanceBaseArray = await sumBalances(base);
@@ -92,10 +92,10 @@ export const handleGetPositions = async (walletAddress: string) => {
       (acc, obj) => acc + obj.totalBalance,
       0,
     );
-    const totalBalanceScroll = totalBalanceScrollArray.reduce(
-      (acc, obj) => acc + obj.totalBalance,
-      0,
-    );
+    // const totalBalanceScroll = totalBalanceScrollArray.reduce(
+    //   (acc, obj) => acc + obj.totalBalance,
+    //   0,
+    // );
     const totalBalanceEthereum = totalBalanceEthereumArray.reduce(
       (acc, obj) => acc + obj.totalBalance,
       0,
@@ -129,7 +129,7 @@ export const handleGetPositions = async (walletAddress: string) => {
 
     // Verificar los resultados finales
     console.log("Total Balance Arbitrum:", totalBalanceArbitrum);
-    console.log("Total Balance Scroll:", totalBalanceScroll);
+    // console.log("Total Balance Scroll:", totalBalanceScroll);
     console.log("Total Balance Ethereum:", totalBalanceEthereum);
 
     return {
@@ -138,11 +138,11 @@ export const handleGetPositions = async (walletAddress: string) => {
         totalBalanceArray: totalBalanceArbitrumArray,
         protocols: arbitrum,
       },
-      scroll: {
-        totalBalance: totalBalanceScroll,
-        totalBalanceArray: totalBalanceScrollArray,
-        protocols: scroll,
-      },
+      // scroll: {
+      //   totalBalance: totalBalanceScroll,
+      //   totalBalanceArray: totalBalanceScrollArray,
+      //   protocols: scroll,
+      // },
       ethereum: {
         totalBalance: totalBalanceEthereum,
         totalBalanceArray: totalBalanceEthereumArray,

@@ -64,9 +64,9 @@ const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
         case "arbitrum":
           setChartData(colorAsigner(portafolio.arbitrum.Balances));
           break;
-        case "scroll":
-          setChartData(colorAsigner(portafolio.scroll.Balances));
-          break;
+        // case "scroll":
+        //   setChartData(colorAsigner(portafolio.scroll.Balances));
+        //   break;
         case "polygon":
           setChartData(colorAsigner(portafolio.polygon.Balances));
           break;
@@ -176,8 +176,8 @@ const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
                                 portafolio.ethereum.TotalBalance.toLocaleString()}
                               {network === "arbitrum" &&
                                 portafolio.arbitrum.TotalBalance.toLocaleString()}
-                              {network === "scroll" &&
-                                portafolio.scroll.TotalBalance.toLocaleString()}
+                              {/* {network === "scroll" &&
+                                portafolio.scroll.TotalBalance.toLocaleString()} */}
                               {network === "polygon" &&
                                 portafolio.polygon.TotalBalance.toLocaleString()}
                               {network === "optimism" &&

@@ -12,14 +12,14 @@ interface AveragesProps {
 }
 
 interface Balances {
-  logo: string;
+  logo: string | null;
   simbolo: string;
   balanceFiat: number;
   balanceCrypto: number;
   valorUnitCrypto: number;
 }
 interface BalancesInPie {
-  logo: string;
+  logo: string | null;
   simbolo: string;
   balanceFiat: number;
   balanceCrypto: number;
@@ -38,7 +38,7 @@ interface BalancesDefiInPie {
 
 interface BalancesResponse {
   arbitrum: { Balances: Balances[]; TotalBalance: number };
-  scroll: { Balances: Balances[]; TotalBalance: number };
+  // scroll: { Balances: Balances[]; TotalBalance: number };
   ethereum: { Balances: Balances[]; TotalBalance: number };
   //Base, polygon and optimism
   base: { Balances: Balances[]; TotalBalance: number };
@@ -69,7 +69,7 @@ interface DefiPositions {
   PolygonPositions: EachNetwork[];
   BasePositions: EachNetwork[];
   ArbPositions: EachNetwork[];
-  ScrollPositions: EachNetwork[];
+  // ScrollPositions: EachNetwork[];
   EthereumPositions: EachNetwork[];
   LineaPositions: EachNetwork[];
   AvalanchePositions: EachNetwork[];

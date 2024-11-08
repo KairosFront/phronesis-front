@@ -54,7 +54,7 @@ const NetworkTabs = () => {
               
             </div>
           </TabsTrigger>
-          <TabsTrigger
+          {/* <TabsTrigger
             onClick={() => setNetwork("scroll")}
             className={`border border-black/40 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
@@ -72,7 +72,7 @@ const NetworkTabs = () => {
               
             </div>
             
-          </TabsTrigger>
+          </TabsTrigger> */}
           <TabsTrigger
             onClick={() => setNetwork("optimism")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
