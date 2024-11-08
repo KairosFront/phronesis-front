@@ -77,7 +77,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("optimism")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="asdja"
+            value="asdjha"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -95,7 +95,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("polygon")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="adjaa"
+            value="adjala"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -113,7 +113,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("base")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="adeja"
+            value="adueja"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -149,7 +149,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("avalanche")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="adeja"
+            value="adejoa"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -167,7 +167,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("gnosis")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="adeja"
+            value="aderja"
           >
             <div className="flex items-center gap-2">
               <Image
