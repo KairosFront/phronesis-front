@@ -54,7 +54,7 @@ const NetworkTabs = () => {
               
             </div>
           </TabsTrigger>
-          <TabsTrigger
+          {/* <TabsTrigger
             onClick={() => setNetwork("scroll")}
             className={`border border-black/40 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
@@ -72,12 +72,12 @@ const NetworkTabs = () => {
               
             </div>
             
-          </TabsTrigger>
+          </TabsTrigger> */}
           <TabsTrigger
             onClick={() => setNetwork("optimism")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="asdja"
+            value="asdjha"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -95,7 +95,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("polygon")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="adjaa"
+            value="adjala"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -113,7 +113,7 @@ const NetworkTabs = () => {
             onClick={() => setNetwork("base")}
             className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
              `}
-            value="adeja"
+            value="adueja"
           >
             <div className="flex items-center gap-2">
               <Image
@@ -123,6 +123,60 @@ const NetworkTabs = () => {
                 alt="Arbitrum"
               />
               <p> Base</p>
+
+              
+            </div>
+          </TabsTrigger>
+          <TabsTrigger
+            onClick={() => setNetwork("linea")}
+            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+             `}
+            value="adeja"
+          >
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src="/icons/networks/linea.png"
+                alt="Linea"
+              />
+              <p> Linea</p>
+
+              
+            </div>
+          </TabsTrigger>
+          <TabsTrigger
+            onClick={() => setNetwork("avalanche")}
+            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+             `}
+            value="adejoa"
+          >
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src=""
+                alt="Avalanche"
+              />
+              <p> Avalanche</p>
+
+              
+            </div>
+          </TabsTrigger>
+          <TabsTrigger
+            onClick={() => setNetwork("gnosis")}
+            className={`border border-black/80 dark:border-foreground rounded-sm text-2xl font-bold 
+             `}
+            value="aderja"
+          >
+            <div className="flex items-center gap-2">
+              <Image
+                height={10}
+                width={40}
+                src=""
+                alt="Gnosis"
+              />
+              <p> Gnosis</p>
 
               
             </div>

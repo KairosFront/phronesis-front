@@ -64,9 +64,9 @@ const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
         case "arbitrum":
           setChartData(colorAsigner(portafolio.arbitrum.Balances));
           break;
-        case "scroll":
-          setChartData(colorAsigner(portafolio.scroll.Balances));
-          break;
+        // case "scroll":
+        //   setChartData(colorAsigner(portafolio.scroll.Balances));
+        //   break;
         case "polygon":
           setChartData(colorAsigner(portafolio.polygon.Balances));
           break;
@@ -75,6 +75,16 @@ const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
           break;
         case "base":
           setChartData(colorAsigner(portafolio.base.Balances));
+          break;
+        case "linea":
+          setChartData(colorAsigner(portafolio.linea.Balances));
+          break;
+        case "avalanche":
+          setChartData(colorAsigner(portafolio.avalanche.Balances));
+          break;
+        case "gnosis":
+          setChartData(colorAsigner(portafolio.gnosis.Balances));
+          break;
       }
     }
   }, [portafolio, network]);
@@ -166,8 +176,8 @@ const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
                                 portafolio.ethereum.TotalBalance.toLocaleString()}
                               {network === "arbitrum" &&
                                 portafolio.arbitrum.TotalBalance.toLocaleString()}
-                              {network === "scroll" &&
-                                portafolio.scroll.TotalBalance.toLocaleString()}
+                              {/* {network === "scroll" &&
+                                portafolio.scroll.TotalBalance.toLocaleString()} */}
                               {network === "polygon" &&
                                 portafolio.polygon.TotalBalance.toLocaleString()}
                               {network === "optimism" &&

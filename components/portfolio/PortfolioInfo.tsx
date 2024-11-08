@@ -42,9 +42,9 @@ const PortfolioInfo = ({wallet}: PortfolioInfoProps) => {
         case "arbitrum":
           setTokensData(portafolio.arbitrum.Balances);
           break;
-        case "scroll":
-          setTokensData(portafolio.scroll.Balances);
-          break;
+        // case "scroll":
+        //   setTokensData(portafolio.scroll.Balances);
+        //   break;
         case "polygon":
           setTokensData(portafolio.polygon.Balances);
           break;
@@ -54,9 +54,19 @@ const PortfolioInfo = ({wallet}: PortfolioInfoProps) => {
         case "optimism":
           setTokensData(portafolio.optimism.Balances);
           break;
+        case "linea":
+          setTokensData(portafolio.linea.Balances);
+          break;
+        case "avalanche":
+          setTokensData(portafolio.avalanche.Balances);
+          break;
+        case "gnosis":
+          setTokensData(portafolio.gnosis.Balances);
+          break;
       }
     }
   }, [portafolio, network]);
+  console.log(tokensData)
 
   return (
     <>
@@ -69,12 +79,35 @@ const PortfolioInfo = ({wallet}: PortfolioInfoProps) => {
             className="flex gap-4 bg-grey-light border border-foreground dark:border-0 dark:bg-black p-2 rounded-md items-center"
           >
             <div className="hidden sm:block">
-              <Image
-                src={token.logo}
-                alt={token.simbolo}
-                width={30}
-                height={30}
-              />
+              {token.logo ? (
+                <Image
+                  src={token.logo}
+                  alt={token.simbolo}
+                  width={30}
+                  height={30}
+                />
+              ) : (
+                <>
+                  <Image
+                    className="dark:block hidden"
+                    src={"/kairos-main.svg"}
+                    alt="Kairos"
+                    width={30}
+                    height={30}
+                  />
+                  <Image
+                    className="dark:hidden block"
+                    src={"/kairos-logo-light.svg"}
+                    alt="Kairos"
+                    width={30}
+                    height={30}
+                  />
+                </>
+              )
+            
+            }
+              
+              
             </div>
             <div className="flex flex-col gap-1 items-start">
               <h6 className="text-xs lg:text-md">{token.simbolo}</h6>

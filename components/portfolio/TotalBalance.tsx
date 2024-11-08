@@ -44,9 +44,9 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
         case "arbitrum":
           setBalance(portafolio.arbitrum.TotalBalance);
           break;
-        case "scroll":
-          setBalance(portafolio.scroll.TotalBalance);
-          break;
+        // case "scroll":
+        //   setBalance(portafolio.scroll.TotalBalance);
+        //   break;
         case "polygon":
           setBalance(portafolio.polygon.TotalBalance);
           break;
@@ -55,6 +55,16 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
           break;
         case "base":
           setBalance(portafolio.base.TotalBalance);
+          break;
+        case "linea":
+          setBalance(portafolio.linea.TotalBalance);
+          break;
+        case "avalanche":
+          setBalance(portafolio.avalanche.TotalBalance);
+          break;
+        case "gnosis":
+          setBalance(portafolio.gnosis.TotalBalance);
+          break;
       }
     }
     if (section === "defi" && defiPositions) {
@@ -65,9 +75,9 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
         case "arbitrum":
           setBalance(defiPositions.arbitrum.totalBalance);
           break;
-        case "scroll":
-          setBalance(defiPositions.scroll.totalBalance);
-          break;
+        // case "scroll":
+        //   setBalance(defiPositions.scroll.totalBalance);
+        //   break;
         case "base":
           setBalance(defiPositions.base.totalBalance);
           break;
@@ -76,6 +86,16 @@ const TotalBalance = ({ section, wallet }: TotalBalanceProps) => {
           break;
         case "optimism":
           setBalance(defiPositions.optimism.totalBalance);
+          break;
+        case "linea":
+          setBalance(defiPositions.linea.totalBalance);
+          break;
+        case "avalanche":
+          setBalance(defiPositions.avalanche.totalBalance);
+          break;
+        case "gnosis":
+          setBalance(defiPositions.gnosis.totalBalance);
+          break;  
       }
     }
   }, [portafolio, network]);

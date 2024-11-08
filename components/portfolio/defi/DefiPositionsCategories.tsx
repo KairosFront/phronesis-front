@@ -56,9 +56,9 @@ const DefiPositionsCategories = ({wallet}: DefiPositionsCategoriesProps) => {
         case "arbitrum":
           setPositions(defiPositions.arbitrum.protocols);
           break;
-        case "scroll":
-          setPositions(defiPositions.scroll.protocols);
-          break;
+        // case "scroll":
+        //   setPositions(defiPositions.scroll.protocols);
+        //   break;
         case "polygon":
           setPositions(defiPositions.polygon.protocols);
           break;
@@ -67,6 +67,15 @@ const DefiPositionsCategories = ({wallet}: DefiPositionsCategoriesProps) => {
           break;
         case "base":
           setPositions(defiPositions.base.protocols);
+          break;
+        case "linea":
+          setPositions(defiPositions.linea.protocols);
+          break;
+        case "avalanche":
+          setPositions(defiPositions.avalanche.protocols);
+          break;
+        case "gnosis":
+          setPositions(defiPositions.gnosis.protocols);
           break;
       }
       setEmpty(false);
