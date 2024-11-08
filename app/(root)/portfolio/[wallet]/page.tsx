@@ -35,7 +35,7 @@ const page = ({params}: pageProps) => {
 
       {/* Seccion de wallets */}
 
-      <section>
+      <section className="mt-36">
         <section id="tokens" className="mb-9">
           <Card className="p-6 bg-[#fff] dark:bg-transparent ">
             <div>

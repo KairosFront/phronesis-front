@@ -15,7 +15,7 @@ const NetworkTabs = () => {
   return (
     <>
       <Tabs>
-        <TabsList className="gap-5" defaultValue="arb">
+        <TabsList className="gap-5 grid lg:grid-cols-5 md:grid-cols-4 " defaultValue="arb">
           <TabsTrigger
             onClick={() => setNetwork("arbitrum")}
             className={`border border-black/80 dark:border-foreground  rounded-sm text-2xl font-bold 

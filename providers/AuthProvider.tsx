@@ -59,11 +59,11 @@ function PrivyProviderWrapper({ children }: { children: React.ReactNode }) {
                   const sessionNumber = window.localStorage.getItem("sessionNumberVersion9");
 
                   if(typeof(sessionNumber) === "undefined" || sessionNumber === null) {
-                    window.localStorage.setItem("sessionNumberVersion9", "0");
-                    window.localStorage.removeItem("sessionNumberVersion1");
+                    window.localStorage.setItem("sessionNumberVersion10", "0");
+                    window.localStorage.removeItem("sessionNumberVersion9");
                     setNumberOfAccess(0);
                   } else{
-                    window.localStorage.setItem("sessionNumberVersion9", "1");
+                    window.localStorage.setItem("sessionNumberVersion10", "1");
                   }
                   
                   

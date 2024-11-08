@@ -24,10 +24,16 @@ const NotificationsButton = () => {
         <div>
           <ul>
           <li>
-                        Implementamos este nuevo sistema de notificaciones para mantenerte informado sobre las actualizaciones de la aplicación!
+                    Se elimino la red de scroll temporalmente
                     </li>
                     <li>
-                        Nueva página principal de portfolio pensada para agregar más de una wallet (actualmente solo en diseño).
+                    Se añadieron las redes de: avalanche, gnosis y linea
+                    </li>
+                    <li>
+                    Se solucionó un problema con la pagina de login
+                    </li>
+                    <li>
+                    Se solucionó el problema de error de cliente al seleccionar una red 
                     </li>
             
           </ul>
