@@ -10,6 +10,7 @@ import Image from "next/image";
 //Components
 import ModulesAccordion from "./ModulesAccordion";
 import { LessonProps } from "@/index";
+import { usePrivy } from "@privy-io/react-auth";
 
 type SidebarProps = {
   module1: LessonProps[] | undefined;
@@ -18,6 +19,9 @@ type SidebarProps = {
 };
 
 const Sidebar = ({ module1, module2, module3 }: SidebarProps) => {
+  const { user } = usePrivy();
+
+  const wallet = user?.wallet?.address;
   const { activeMenu } = useStateContext();
   //2xl:w-72 xl:w-64 md:w-56
   return (
@@ -26,7 +30,7 @@ const Sidebar = ({ module1, module2, module3 }: SidebarProps) => {
         <aside className="sidebar ">
           <nav className="sidebar-nav">
             <ul className="sidebar-nav_elements">
-              <Link className="sidebar-nav_element" href="/portfolio">
+              <Link className="sidebar-nav_element"  href={`/portfolio/${wallet}`}>
                 <Image
                   src="/icons/navigation/wallet-fill.svg"
                   alt="wallet"

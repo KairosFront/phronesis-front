@@ -20,10 +20,15 @@ import { useDefiPositions } from "@/hooks/usePortafolio";
 import { BalancesDefi, BalancesDefiInPie } from "@/index";
 import { useSelectNetwork } from "@/hooks/usePortafolio";
 
-const ChartDefiPositions = () => {
+interface ChartDefiPositionsProps {
+  wallet: string;
+}
+
+
+const ChartDefiPositions = ({wallet}: ChartDefiPositionsProps) => {
   const { network } = useSelectNetwork();
 
-  const [address, setAddress] = React.useState("");
+  // const [address, setAddress] = React.useState("");
   const [chartData, setChartData] = React.useState<BalancesDefiInPie[]>([]);
   const [loading, setLoading] = React.useState(false);
 
@@ -35,14 +40,14 @@ const ChartDefiPositions = () => {
     return updatedBalancesObj;
   }
 
-  React.useEffect(() => {
-    const addr = window.localStorage.getItem("wallet");
-    if (typeof window !== "undefined" && addr != null) {
-      setAddress(addr);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const addr = window.localStorage.getItem("wallet");
+  //   if (typeof window !== "undefined" && addr != null) {
+  //     setAddress(addr);
+  //   }
+  // }, []);
 
-  const { defiPositions, isLoading } = useDefiPositions(address);
+  const { defiPositions, isLoading } = useDefiPositions(wallet);
 
   useEffect(() => {
     if (isLoading) {
@@ -60,9 +65,9 @@ const ChartDefiPositions = () => {
         case "arbitrum":
           setChartData(colorAsigner(defiPositions.arbitrum.totalBalanceArray));
           break;
-        case "scroll":
-          setChartData(colorAsigner(defiPositions.scroll.totalBalanceArray));
-          break;
+        // case "scroll":
+        //   setChartData(colorAsigner(defiPositions.scroll.totalBalanceArray));
+        //   break;
         case "polygon":
           setChartData(colorAsigner(defiPositions.polygon.totalBalanceArray));
           break;
@@ -71,6 +76,15 @@ const ChartDefiPositions = () => {
           break;
         case "base":
           setChartData(colorAsigner(defiPositions.base.totalBalanceArray));
+          break;
+        case "linea":
+          setChartData(colorAsigner(defiPositions.linea.totalBalanceArray));
+          break;
+        case "avalanche":
+          setChartData(colorAsigner(defiPositions.avalanche.totalBalanceArray));
+          break;
+        case "gnosis":
+          setChartData(colorAsigner(defiPositions.gnosis.totalBalanceArray));
           break;
       }
     }
@@ -167,9 +181,9 @@ const ChartDefiPositions = () => {
                               {network === "arbitrum" &&
                                 defiPositions &&
                                 defiPositions.arbitrum.totalBalance.toLocaleString()}
-                              {network === "scroll" &&
+                              {/* {network === "scroll" &&
                                 defiPositions &&
-                                defiPositions.scroll.totalBalance.toLocaleString()}
+                                defiPositions.scroll.totalBalance.toLocaleString()} */}
                               {network === "polygon" &&
                                 defiPositions &&
                                 defiPositions.polygon.totalBalance.toLocaleString()}

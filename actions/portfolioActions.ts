@@ -4,18 +4,21 @@ import { DefiPositions, Protocol, EntriesFromResponseType } from "..";
 
 export const handleGetBalances = async (walletAddress: string) => {
   try {
-    console.log("Hace la llamada a getBalances");
+    console.log("Hace la llamada a getBalances con wallet:", walletAddress);
     const response = await getBalances(walletAddress);
+    console.log('Respuesta:', response);
     return {
       arbitrum: response.arbitrum,
-      scroll: response.scroll,
       ethereum: response.etehereum,
       base: response.base,
       polygon: response.polygon,
       optimism: response.optimisum,
+      linea: response.linea,
+      avalanche: response.avalanche,
+      gnosis: response.gnosis,
     };
   } catch (err: any) {
-    console.error(err.message);
+    // console.error(err.message);
   }
 };
 
@@ -25,9 +28,9 @@ export const handleGetPositions = async (walletAddress: string) => {
     const arbitrum = Object.entries(
       response.ArbPositions[0].original,
     ) as EntriesFromResponseType[];
-    const scroll = Object.entries(
-      response.ScrollPositions[0].original,
-    ) as EntriesFromResponseType[];
+    // const scroll = Object.entries(
+    //   response.ScrollPositions[0].original,
+    // ) as EntriesFromResponseType[];
     const ethereum = Object.entries(
       response.EthereumPositions[0].original,
     ) as EntriesFromResponseType[];
@@ -40,6 +43,16 @@ export const handleGetPositions = async (walletAddress: string) => {
     ) as EntriesFromResponseType[];
     const optimism = Object.entries(
       response.OptimisumPositions[0].original,
+    ) as EntriesFromResponseType[];
+
+    const linea = Object.entries(
+      response.LineaPositions[0].original,
+    ) as EntriesFromResponseType[];
+    const avalanche = Object.entries(
+      response.AvalanchePositions[0].original,
+    ) as EntriesFromResponseType[];
+    const gnosis = Object.entries(
+      response.GnosisPostions[0].original,
     ) as EntriesFromResponseType[];
 
     // Función para sumar los balances de cada posición
@@ -58,12 +71,17 @@ export const handleGetPositions = async (walletAddress: string) => {
 
     // Sumar los balances de cada red
     const totalBalanceArbitrumArray = await sumBalances(arbitrum);
-    const totalBalanceScrollArray = await sumBalances(scroll);
+    // const totalBalanceScrollArray = await sumBalances(scroll);
     const totalBalanceEthereumArray = await sumBalances(ethereum);
     //Base, polygon and optimism
     const totalBalanceBaseArray = await sumBalances(base);
     const totalBalancePolygonArray = await sumBalances(polygon);
     const totalBalanceOptimismArray = await sumBalances(optimism);
+
+    const totalBalanceLineaArray = await sumBalances(linea);
+    const totalBalanceAvalancheArray = await sumBalances(avalanche);
+    const totalBalanceGnosisArray = await sumBalances(gnosis);
+
 
     // Verificar los resultados intermedios
 
@@ -74,10 +92,10 @@ export const handleGetPositions = async (walletAddress: string) => {
       (acc, obj) => acc + obj.totalBalance,
       0,
     );
-    const totalBalanceScroll = totalBalanceScrollArray.reduce(
-      (acc, obj) => acc + obj.totalBalance,
-      0,
-    );
+    // const totalBalanceScroll = totalBalanceScrollArray.reduce(
+    //   (acc, obj) => acc + obj.totalBalance,
+    //   0,
+    // );
     const totalBalanceEthereum = totalBalanceEthereumArray.reduce(
       (acc, obj) => acc + obj.totalBalance,
       0,
@@ -96,9 +114,22 @@ export const handleGetPositions = async (walletAddress: string) => {
       0,
     );
 
+    const totalBalanceLinea = totalBalanceLineaArray.reduce(
+      (acc, obj) => acc + obj.totalBalance,
+      0,
+    );
+    const totalBalanceAvalanche = totalBalanceAvalancheArray.reduce(
+      (acc, obj) => acc + obj.totalBalance,
+      0,
+    );
+    const totalBalanceGnosis = totalBalanceGnosisArray.reduce(
+      (acc, obj) => acc + obj.totalBalance,
+      0,
+    );
+
     // Verificar los resultados finales
     console.log("Total Balance Arbitrum:", totalBalanceArbitrum);
-    console.log("Total Balance Scroll:", totalBalanceScroll);
+    // console.log("Total Balance Scroll:", totalBalanceScroll);
     console.log("Total Balance Ethereum:", totalBalanceEthereum);
 
     return {
@@ -107,11 +138,11 @@ export const handleGetPositions = async (walletAddress: string) => {
         totalBalanceArray: totalBalanceArbitrumArray,
         protocols: arbitrum,
       },
-      scroll: {
-        totalBalance: totalBalanceScroll,
-        totalBalanceArray: totalBalanceScrollArray,
-        protocols: scroll,
-      },
+      // scroll: {
+      //   totalBalance: totalBalanceScroll,
+      //   totalBalanceArray: totalBalanceScrollArray,
+      //   protocols: scroll,
+      // },
       ethereum: {
         totalBalance: totalBalanceEthereum,
         totalBalanceArray: totalBalanceEthereumArray,
@@ -132,6 +163,22 @@ export const handleGetPositions = async (walletAddress: string) => {
         totalBalance: totalBalanceOptimism,
         totalBalanceArray: totalBalanceOptimismArray,
         protocols: optimism,
+      },
+      //Linea, avalanche & gnosis
+      linea: {
+        totalBalance: totalBalanceLinea,
+        totalBalanceArray: totalBalanceLineaArray,
+        protocols: linea,
+      },
+      avalanche: {
+        totalBalance: totalBalanceAvalanche,
+        totalBalanceArray: totalBalanceAvalancheArray,
+        protocols: avalanche,
+      },
+      gnosis: {
+        totalBalance: totalBalanceGnosis,
+        totalBalanceArray: totalBalanceGnosisArray,
+        protocols: gnosis,
       },
     };
   } catch (error: any) {
