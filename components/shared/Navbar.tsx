@@ -18,6 +18,7 @@ import ModulesAccordion from "./sidebar/ModulesAccordion";
 import { LessonProps } from "@/index";
 import { ModeToggle } from "../ui/toggleMode";
 import NotificationsButton from "../ui/NotificationsButton";
+import PortfolioLink from "./PortfolioLink";
 
 type NavProps = {
   module1: LessonProps[] | undefined;
@@ -87,23 +88,7 @@ const Navbar = ({ module1, module2, module3 }: NavProps) => {
               </SheetHeader>
               <nav>
                 <ul className="header-nav_elements">
-                  <Link className="header-nav_text" href="/portfolio">
-                    <Image
-                      src="/icons/navigation/wallet-fill.svg"
-                      alt="wallet"
-                      height={25}
-                      width={25}
-                      className="dark:inline hidden "
-                    />
-                    <Image
-                      src="/dark/icons/navigation/wallet.png"
-                      alt="wallet"
-                      height={25}
-                      width={25}
-                      className="inline dark:hidden"
-                    />
-                    Portafolio
-                  </Link>
+                  <PortfolioLink />
                   <Link className="header-nav_text" href="/dashboard">
                     <Image
                       src="/icons/navigation/table-fill.svg"

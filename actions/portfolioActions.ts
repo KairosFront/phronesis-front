@@ -4,7 +4,7 @@ import { DefiPositions, Protocol, EntriesFromResponseType } from "..";
 
 export const handleGetBalances = async (walletAddress: string) => {
   try {
-    console.log("Hace la llamada a getBalances");
+    console.log("Hace la llamada a getBalances con wallet:", walletAddress);
     const response = await getBalances(walletAddress);
     console.log('Respuesta:', response);
     return {
@@ -18,7 +18,7 @@ export const handleGetBalances = async (walletAddress: string) => {
       gnosis: response.gnosis,
     };
   } catch (err: any) {
-    console.error(err.message);
+    // console.error(err.message);
   }
 };
 

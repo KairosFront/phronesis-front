@@ -15,7 +15,7 @@ const NetworkTabs = () => {
   return (
     <>
       <Tabs>
-        <TabsList className="gap-5 grid lg:grid-cols-5 md:grid-cols-4 " defaultValue="arb">
+        <TabsList className="gap-2 md:gap-5 grid grid-cols-2 lg:grid-cols-5 md:grid-cols-4 " defaultValue="arb">
           <TabsTrigger
             onClick={() => setNetwork("arbitrum")}
             className={`border border-black/80 dark:border-foreground  rounded-sm text-2xl font-bold 
@@ -155,7 +155,7 @@ const NetworkTabs = () => {
               <Image
                 height={10}
                 width={40}
-                src=""
+                src="/icons/networks/avalanche.png"
                 alt="Avalanche"
               />
               <p> Avalanche</p>
@@ -173,7 +173,7 @@ const NetworkTabs = () => {
               <Image
                 height={10}
                 width={40}
-                src=""
+                src="/icons/networks/gnosis.png"
                 alt="Gnosis"
               />
               <p> Gnosis</p>

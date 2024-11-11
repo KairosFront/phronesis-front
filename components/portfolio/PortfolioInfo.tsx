@@ -112,7 +112,7 @@ const PortfolioInfo = ({wallet}: PortfolioInfoProps) => {
             <div className="flex flex-col gap-1 items-start">
               <h6 className="text-xs lg:text-md">{token.simbolo}</h6>
               <p className=" p-0 m-0 text-xs lg:text-xl font-extrabold">
-                {token.balanceCrypto.toLocaleString()}
+                {token.balanceCrypto.toLocaleString().slice(0, 7)}
               </p>
             </div>
           </div>

@@ -35,7 +35,7 @@ const page = ({params}: pageProps) => {
 
       {/* Seccion de wallets */}
 
-      <section className="mt-36">
+      <section className="md:mt-36 mt-72">
         <section id="tokens" className="mb-9">
           <Card className="p-6 bg-[#fff] dark:bg-transparent ">
             <div>
@@ -59,7 +59,7 @@ const page = ({params}: pageProps) => {
                     </div>
                   </div>
                 </section>
-                <section className="grid grid-cols-2 w-3/5 lg:w-full gap-4">
+                <section className="grid md:grid-cols-2 w-3/5 lg:w-full gap-4">
                   <PortfolioInfo wallet={wallet} />
                 </section>
               </CardContent>
@@ -85,7 +85,7 @@ const page = ({params}: pageProps) => {
 
       {/* Seccion de posiciones */}
       <section>
-        <section className="mb-9">
+        <section className="my-9">
           <Card className="p-6 bg-[#fff] dark:bg-transparent ">
             <div>
               <h1>¿Cuales son tus posiciones DeFi?</h1>
