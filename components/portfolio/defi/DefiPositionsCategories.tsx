@@ -18,8 +18,12 @@ import {
   Protocol,
 } from "@/index";
 
-const DefiPositionsCategories = () => {
-  const [address, setAddress] = React.useState("");
+interface DefiPositionsCategoriesProps {
+  wallet: string;
+}
+
+const DefiPositionsCategories = ({wallet}: DefiPositionsCategoriesProps) => {
+  // const [address, setAddress] = React.useState("");
   // const [arbPositions, setArbPositions] = React.useState<EntriesFromResponseType[]>();
   // const [ethPositions, setEthPositions] = React.useState<EntriesFromResponseType[]>();
   // const [scrollPositions, setScrollPositions] = React.useState<EntriesFromResponseType[]>();
@@ -33,15 +37,15 @@ const DefiPositionsCategories = () => {
   const [totalFiat, setTotalFiat] = React.useState(0);
   const [empty, setEmpty] = React.useState(false);
 
-  useEffect(() => {
-    const addr = window.localStorage.getItem("wallet");
-    if (typeof window !== "undefined" && addr != null) {
-      setAddress(addr);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const addr = window.localStorage.getItem("wallet");
+  //   if (typeof window !== "undefined" && addr != null) {
+  //     setAddress(addr);
+  //   }
+  // }, []);
 
   const { network } = useSelectNetwork();
-  const { defiPositions, isLoading } = useDefiPositions(address);
+  const { defiPositions, isLoading } = useDefiPositions(wallet);
 
   useEffect(() => {
     if (defiPositions) {
@@ -52,9 +56,9 @@ const DefiPositionsCategories = () => {
         case "arbitrum":
           setPositions(defiPositions.arbitrum.protocols);
           break;
-        case "scroll":
-          setPositions(defiPositions.scroll.protocols);
-          break;
+        // case "scroll":
+        //   setPositions(defiPositions.scroll.protocols);
+        //   break;
         case "polygon":
           setPositions(defiPositions.polygon.protocols);
           break;
@@ -63,6 +67,15 @@ const DefiPositionsCategories = () => {
           break;
         case "base":
           setPositions(defiPositions.base.protocols);
+          break;
+        case "linea":
+          setPositions(defiPositions.linea.protocols);
+          break;
+        case "avalanche":
+          setPositions(defiPositions.avalanche.protocols);
+          break;
+        case "gnosis":
+          setPositions(defiPositions.gnosis.protocols);
           break;
       }
       setEmpty(false);

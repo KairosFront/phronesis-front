@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 import { DialogHookProps, DialogNotes } from "@/index";
-import { DialogInstrHookProps } from "@/index";
+import { DialogInstrHookProps, DialogNotificationsProps } from "@/index";
 
 export const useDialogItem = create<DialogHookProps>((set) => ({
   isOpen: false,
@@ -29,4 +29,11 @@ export const useDialogsNotes = create<DialogNotes>((set) => ({
   initialValue: null,
   setInitialValue: (newInitialValue: null | string) =>
     set({ initialValue: newInitialValue }),
+}));
+
+
+export const useDialogNotifications = create<DialogNotificationsProps>((set) => ({
+  numberOfAccess: 0,
+  setNumberOfAccess: (newState: number) => set({ numberOfAccess: newState }),
+  
 }));

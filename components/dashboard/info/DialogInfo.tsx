@@ -26,7 +26,7 @@ const DialogInfo = ({
   projectsList,
 }: DialogInfoProps) => {
   const id = projectsList?.find(
-    (item) => item.proyecto === selectedRow?.proyecto ?? 0,
+    (item) => item.proyecto === selectedRow?.proyecto,
   );
 
   const [info, setInfo] = useState<ProyectsInfo | null>(null);

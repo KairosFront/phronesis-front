@@ -12,14 +12,14 @@ interface AveragesProps {
 }
 
 interface Balances {
-  logo: string;
+  logo: string | null;
   simbolo: string;
   balanceFiat: number;
   balanceCrypto: number;
   valorUnitCrypto: number;
 }
 interface BalancesInPie {
-  logo: string;
+  logo: string | null;
   simbolo: string;
   balanceFiat: number;
   balanceCrypto: number;
@@ -38,12 +38,16 @@ interface BalancesDefiInPie {
 
 interface BalancesResponse {
   arbitrum: { Balances: Balances[]; TotalBalance: number };
-  scroll: { Balances: Balances[]; TotalBalance: number };
+  // scroll: { Balances: Balances[]; TotalBalance: number };
   ethereum: { Balances: Balances[]; TotalBalance: number };
   //Base, polygon and optimism
   base: { Balances: Balances[]; TotalBalance: number };
   polygon: { Balances: Balances[]; TotalBalance: number };
   optimism: { Balances: Balances[]; TotalBalance: number };
+  //Linea, avalanche y gnosis
+  linea: { Balances: Balances[]; TotalBalance: number };
+  avalanche: { Balances: Balances[]; TotalBalance: number };
+  gnosis: { Balances: Balances[]; TotalBalance: number };
 }
 
 // Positions Defi Types and interfaces
@@ -65,8 +69,11 @@ interface DefiPositions {
   PolygonPositions: EachNetwork[];
   BasePositions: EachNetwork[];
   ArbPositions: EachNetwork[];
-  ScrollPositions: EachNetwork[];
+  // ScrollPositions: EachNetwork[];
   EthereumPositions: EachNetwork[];
+  LineaPositions: EachNetwork[];
+  AvalanchePositions: EachNetwork[];
+  GnosisPostions: EachNetwork[];
 }
 
 export type EntriesFromResponseType = [string, Protocol[]];
@@ -133,6 +140,11 @@ interface DialogHookProps {
   setIsOpen: (newState: boolean) => void;
   mode: "add" | "edit" | "none";
   setMode: (newMode: "add" | "edit" | "none") => void;
+}
+interface DialogNotificationsProps {
+  numberOfAccess: number;
+  setNumberOfAccess: (newState: number) => void;
+  
 }
 interface DialogInstrHookProps {
   isOpenInstr: boolean;

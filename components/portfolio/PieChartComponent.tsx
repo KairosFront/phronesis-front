@@ -19,11 +19,15 @@ import {
 import { usePortafolio } from "@/hooks/usePortafolio";
 import { Balances, BalancesInPie } from "@/index";
 import { useSelectNetwork } from "@/hooks/usePortafolio";
+interface ChartBalancesWalletProps {
+      wallet: string;
+  
+}
 
-const ChartBalancesWallet = () => {
+const ChartBalancesWallet = ({wallet}: ChartBalancesWalletProps) => {
   const { network } = useSelectNetwork();
 
-  const [address, setAddress] = React.useState("");
+  // const [address, setAddress] = React.useState("");
   const [chartData, setChartData] = React.useState<BalancesInPie[]>([]);
   const [loading, setLoading] = React.useState(false);
 
@@ -35,14 +39,14 @@ const ChartBalancesWallet = () => {
     return updatedBalancesObj;
   }
 
-  React.useEffect(() => {
-    const addr = window.localStorage.getItem("wallet");
-    if (typeof window !== "undefined" && addr != null) {
-      setAddress(addr);
-    }
-  }, []);
+  // React.useEffect(() => {
+  //   const addr = window.localStorage.getItem("wallet");
+  //   if (typeof window !== "undefined" && addr != null) {
+  //     setAddress(addr);
+  //   }
+  // }, []);
 
-  const { portafolio, isLoading } = usePortafolio(address);
+  const { portafolio, isLoading } = usePortafolio(wallet);
 
   useEffect(() => {
     if (isLoading) {
@@ -60,9 +64,9 @@ const ChartBalancesWallet = () => {
         case "arbitrum":
           setChartData(colorAsigner(portafolio.arbitrum.Balances));
           break;
-        case "scroll":
-          setChartData(colorAsigner(portafolio.scroll.Balances));
-          break;
+        // case "scroll":
+        //   setChartData(colorAsigner(portafolio.scroll.Balances));
+        //   break;
         case "polygon":
           setChartData(colorAsigner(portafolio.polygon.Balances));
           break;
@@ -71,6 +75,16 @@ const ChartBalancesWallet = () => {
           break;
         case "base":
           setChartData(colorAsigner(portafolio.base.Balances));
+          break;
+        case "linea":
+          setChartData(colorAsigner(portafolio.linea.Balances));
+          break;
+        case "avalanche":
+          setChartData(colorAsigner(portafolio.avalanche.Balances));
+          break;
+        case "gnosis":
+          setChartData(colorAsigner(portafolio.gnosis.Balances));
+          break;
       }
     }
   }, [portafolio, network]);
@@ -162,8 +176,8 @@ const ChartBalancesWallet = () => {
                                 portafolio.ethereum.TotalBalance.toLocaleString()}
                               {network === "arbitrum" &&
                                 portafolio.arbitrum.TotalBalance.toLocaleString()}
-                              {network === "scroll" &&
-                                portafolio.scroll.TotalBalance.toLocaleString()}
+                              {/* {network === "scroll" &&
+                                portafolio.scroll.TotalBalance.toLocaleString()} */}
                               {network === "polygon" &&
                                 portafolio.polygon.TotalBalance.toLocaleString()}
                               {network === "optimism" &&

@@ -1,120 +1,102 @@
-import React from "react";
-import ChartBalancesWallet from "@/components/portfolio/PieChartComponent";
-import ChartDefiPositions from "@/components/portfolio/defi/PieChartDefiPositions";
-import PortfolioInfo from "@/components/portfolio/PortfolioInfo";
-import TokensInfo from "@/components/portfolio/TokensInfo";
-import { Card, CardContent } from "@/components/ui/card";
-import { getBalances } from "@/services/backend/balances";
-import NetworkTabs from "@/components/portfolio/NetworkTabs";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import TotalBalance from "@/components/portfolio/TotalBalance";
-import DefiPositionsCategories from "@/components/portfolio/defi/DefiPositionsCategories";
+import React from 'react'
+import { Button } from '@/components/ui/button'
+import { Avatar } from '@/components/ui/avatar'
+import { Carousel, CarouselNext, CarouselPrevious, CarouselContent, CarouselItem } from '@/components/ui/carousel'
+import { Card, CardContent } from '@/components/ui/card'
+import WalletsCarrousel from '@/components/portfolio/WalletsCarrousel'
+import AddWallet from '@/components/portfolio/dialogs/AddWallet'
+
+
+
 
 const page = () => {
   return (
     <div>
-      <section className=" my-5">
-        <NetworkTabs />
-      </section>
+        <header className='relative mb-7 h-[26vh]'>
+            <section className='dark:bg-gradient-to-r bg-gradient-to-l  from-green-dark/70 to-green-light/70 h-4/5 2xl:mx-[-7rem] mx-[-5rem] mt-[-5rem]'/> 
 
-      {/* Seccion de wallets */}
+            <Avatar className='absolute left-1 bottom-0 h-52 w-52 rounded-lg bg-white dark:bg-black border-8 border-green-dark'>
+                
 
-      <section>
-        <section id="tokens" className="mb-9">
-          <Card className="p-6 bg-[#fff] dark:bg-transparent ">
-            <div>
-              <h1>¿Cómo está distribuido tu portafolio?</h1>
-              <p>
-                {/* Aquí puedes ver como está distribuido tu portafolio en base a las categorías que has creado. */}
-                En este apartado, podrás monitorear activos que tienes en tu
-                cartera conectada a la aplicación.
-              </p>
-            </div>
+            </Avatar>
 
-            <section className="grid grid-cols-1 lg:grid-cols-2 p-6 items-center">
-              <ChartBalancesWallet />
+        </header>
+        <main>
+            <section className='flex justify-between mb-7'>
+                <div>
+                    <h1>Nombre de usuario</h1>
+                    <h2>direccion de wallet</h2>
+                </div>
+                <div>
+                    <AddWallet/>
+                </div>
 
-              <CardContent className="flex lg:flex-col gap-16 text-lg lg:text-xl ">
-                <section className="grid w-1/2 lg:w-full">
-                  <div className="stat py-1 rounded-md border border-foreground dark:border-0 bg-grey-light dark:bg-black">
-                    <div className="text-sm lg:text-lg">Saldo total</div>
-                    <div className="text-xl lg:text-3xl font-extrabold">
-                      <TotalBalance section="wallet" />
-                    </div>
-                  </div>
-                </section>
-                <section className="grid grid-cols-2 w-3/5 lg:w-full gap-4">
-                  <PortfolioInfo />
-                </section>
-              </CardContent>
+
             </section>
-          </Card>
-        </section>
-        <section>
-          <Table>
-            <TableHeader className="bg-black text-white ">
-              <TableRow>
-                <TableHead>Token</TableHead>
-                <TableHead>Precio</TableHead>
-                <TableHead>Monto</TableHead>
-                <TableHead>Valor en USD</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TokensInfo />
-            </TableBody>
-          </Table>
-        </section>
-      </section>
+            <section className='flex flex-col items-center justify-between h-[26vh]'>
+                <h2 className='text-center font-extrabold text-3xl'>Selecciona la wallet que deseas ver</h2>
+                {/* Wallets' carrousel */}
+                <div className='relative'>
+                <Carousel className="my-10 px-20" opts={{ loop: true }}>
+                    <CarouselPrevious/>
+                    <CarouselContent>
+                        <CarouselItem className='flex justify-center'>
+                           <WalletsCarrousel/>
+                        </CarouselItem>
+                        {/* <CarouselItem className='flex justify-center basis-1/5'>
+                           <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
+                                <CardContent>
+                                    <h3>Wallet 1</h3>
+                                    <p>Balance: 0.00</p>
+                                    </CardContent>
+                            </Card>
+                        </CarouselItem>
+                        <CarouselItem className='flex justify-center basis-1/5'>
+                           <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
+                                <CardContent>
+                                    <h3>Wallet 1</h3>
+                                    <p>Balance: 0.00</p>
+                                    </CardContent>
+                            </Card>
+                        </CarouselItem>
+                        <CarouselItem className='flex justify-center basis-1/5'>
+                           <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
+                                <CardContent>
+                                    <h3>Wallet 1</h3>
+                                    <p>Balance: 0.00</p>
+                                    </CardContent>
+                            </Card>
+                        </CarouselItem>
+                        <CarouselItem className='flex justify-center basis-1/5'>
+                           <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
+                                <CardContent>
+                                    <h3>Wallet 1</h3>
+                                    <p>Balance: 0.00</p>
+                                    </CardContent>
+                            </Card>
+                        </CarouselItem>
+                        <CarouselItem className='flex justify-center basis-1/5'>
+                           <Card className='p-6 h-36 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45'>
+                                <CardContent>
+                                    <h3>Wallet 1</h3>
+                                    <p>Balance: 0.00</p>
+                                    </CardContent>
+                            </Card>
+                        </CarouselItem> */}
+                    
+                    
 
-      {/* Seccion de posiciones */}
-      <section>
-        <section className="mb-9">
-          <Card className="p-6 bg-[#fff] dark:bg-transparent ">
-            <div>
-              <h1>¿Cuales son tus posiciones DeFi?</h1>
-              <p>
-                {/* Aquí puedes ver como está distribuido tu portafolio en base a las categorías que has creado. */}
-                En este apartado, podrás monitorear las posiciones que tienes en
-                tu cartera conectada a la aplicación.
-              </p>
-            </div>
+                    </CarouselContent>
+                    
+                    <CarouselNext/>
+                </Carousel>
+                </div>
+                
 
-            <section className="grid grid-cols-1 lg:grid-cols-2 p-6 items-center">
-              <ChartDefiPositions />
-
-              <CardContent className="flex lg:flex-col gap-16 text-lg lg:text-xl ">
-                <section className="grid w-1/2 lg:w-full">
-                  <div className="stat py-1 rounded-md border border-foreground dark:border-0 bg-grey-light dark:bg-black">
-                    <div className="text-sm lg:text-lg">Saldo total</div>
-                    <div className="text-xl lg:text-3xl font-extrabold">
-                      <TotalBalance section="defi" />
-                    </div>
-                  </div>
-                </section>
-                {/* <section className='grid grid-cols-2 w-3/5 lg:w-full gap-4'>
-
-                        <PortfolioInfo />
-
-                </section> */}
-              </CardContent>
             </section>
-          </Card>
-        </section>
-
-        <section>
-          <DefiPositionsCategories />
-        </section>
-      </section>
+        </main>
     </div>
-  );
-};
+  )
+}
 
-export default page;
+export default page
