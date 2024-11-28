@@ -6,6 +6,7 @@ import PrivyProviderWrapper from "@/providers/AuthProvider";
 import { ContextProvider } from "@/contexts/ContextProvider";
 import { SWRProvider } from "@/providers/SwrProvider";
 import ThemeProviderApp from "@/providers/themeProvider";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <GoogleAnalytics
+          gaId="G-9LSZWBE148"
+        ></GoogleAnalytics>
         <ContextProvider>
           <PrivyProviderWrapper>
             <SWRProvider>
