@@ -38,6 +38,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+      'blue-shadow': '-4px 20px 186px -2px #57FFDC, 0 22px 41px 12px #1e3a8a',
+      },
       backgroundImage: {
         "hero-pattern": "url('/backgrounds/login.png')",
         "footer-texture": "url('/img/footer-texture.png')",

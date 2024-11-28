@@ -6,7 +6,7 @@ const UNAUTHENTICATED_PAGES = ["/"];
 
 export const config = {
   // necessary to ensure that you are redirected to the refresh page
-  matcher: ["/", "/dashboard", "/refresh", "/data-on-chain","/portfolio", "/portfolio/:path*"],
+  matcher: ["/login", "/dashboard", "/refresh", "/data-on-chain","/portfolio", "/portfolio/:path*"],
 };
 
 export async function middleware(req: NextRequest) {
