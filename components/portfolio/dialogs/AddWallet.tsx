@@ -4,6 +4,8 @@ import { Dialog, DialogContent, DialogTrigger, DialogTitle,
  } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Select, SelectItem, SelectContent, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Card, CardContent } from '@/components/ui/card'
+import { Plus } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 
 
@@ -12,9 +14,13 @@ const AddWallet = () => {
     <>
         <Dialog>
             <DialogTrigger>
-            <Button className='bg-green-dark '>
-                    Agregar wallet de otra cadena + 
-                </Button>
+            
+            <Card>
+                <CardContent className="flex flex-col items-center justify-center gap-5 min-h-56 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45">
+                    <Plus className='h-28 w-28'/>
+                    Agregar wallet
+                </CardContent>
+            </Card>
 
             </DialogTrigger>
             <DialogContent className="max-h-[50vh] md:max-h-full md:min-w-[70%] overflow-auto px-12">

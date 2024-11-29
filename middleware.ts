@@ -50,13 +50,13 @@ export async function middleware(req: NextRequest) {
     
     if (!definitelyAuthenticated) {
       // Only redirect if the user is not already on the '/' route
-      if (!(req.nextUrl.pathname === "/")) {
+      if (!(req.nextUrl.pathname === "/login")) {
         return NextResponse.redirect(new URL("/", req.url));
       }
     }
   }
 
-  if (req.nextUrl.pathname === "/") {
+  if (req.nextUrl.pathname === "/login") {
     if (definitelyAuthenticated) {
       // Only redirect if the user is not already on the '/dashboard' route
       if (!req.nextUrl.pathname.startsWith("/dashboard")) {
