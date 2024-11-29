@@ -45,6 +45,7 @@ const config = {
         "hero-pattern": "url('/backgrounds/login.png')",
         "footer-texture": "url('/img/footer-texture.png')",
         "page-texture": "url('/backgrounds/rombos.png')",
+        "fondo-landing": "url('/landing/shadow.png')",
       },
       scrollbar: {
         thin: "10px",
