@@ -300,7 +300,7 @@ const page = () => {
                         <CardTitle>Usuario 1</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p>"Phronesis ha revolucionado la forma en que gestiono mis inversiones DeFi. Todo en un solo lugar, ¡es increíble!"</p>
+                        <p>Phronesis ha revolucionado la forma en que gestiono mis inversiones DeFi. Todo en un solo lugar, ¡es increíble!</p>
                     </CardContent>
                     <CardFooter>
                         <Star className='text-yellow-500'/>
@@ -318,7 +318,7 @@ const page = () => {
                         <CardTitle>Usuario 2</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p>"La comparación de tokens es rápida y sencilla. Phronesis me ahorra mucho tiempo y esfuerzo."</p>
+                        <p>La comparación de tokens es rápida y sencilla. Phronesis me ahorra mucho tiempo y esfuerzo.</p>
                     </CardContent>
                     <CardFooter>
                         <Star className='text-yellow-500'/>
@@ -336,7 +336,7 @@ const page = () => {
                         <CardTitle>Usuario 3</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p>"El análisis detallado de proyectos me ha permitido tomar decisiones más informadas. ¡Altamente recomendado!"</p>
+                        <p>El análisis detallado de proyectos me ha permitido tomar decisiones más informadas. ¡Altamente recomendado!</p>
                     </CardContent>
                     <CardFooter>
                         <Star className='text-yellow-500'/>
