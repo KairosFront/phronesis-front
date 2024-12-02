@@ -480,3 +480,14 @@ interface SelectNetworkProps {
   //   addresses: string[];
   //   setAddresses: (newAddresses: string[]) => void;
 }
+
+
+export type WalletManipulationBody = {
+  idUsuario:number;
+  wallet: string;
+}
+
+export type Wallet = {
+  id: number;
+  address: string;
+}

@@ -9,6 +9,7 @@ import {
   handleGetBalances,
   handleGetPositions,
 } from "@/actions/portfolioActions";
+import { handleGetWallets } from "@/actions/walletsActions";
 
 export const usePortafolio = (address: string) => {
   const { data, error, isLoading, mutate } = useSWR(
@@ -41,7 +42,6 @@ export const useDefiPositions = (address: string) => {
     mutate,
   };
 };
-
 export const useSelectNetwork = create<SelectNetworkProps>((set) => ({
   network: "arbitrum",
   setNetwork(newNetwork: string) {
