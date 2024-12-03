@@ -16,6 +16,16 @@ export const handleGetBalances = async (walletAddress: string) => {
       linea: response.linea,
       avalanche: response.avalanche,
       gnosis: response.gnosis,
+      //una suma de todos sus balances:
+      totalBalanceWallet: 
+        response.arbitrum.TotalBalance + 
+        response.etehereum.TotalBalance +
+        response.base.TotalBalance +
+        response.polygon.TotalBalance +
+        response.optimisum.TotalBalance +
+        response.linea.TotalBalance +
+        response.avalanche.TotalBalance +
+        response.gnosis.TotalBalance,
     };
   } catch (err: any) {
     console.error(err.message);

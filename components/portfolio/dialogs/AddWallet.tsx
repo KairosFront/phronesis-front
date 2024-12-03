@@ -28,11 +28,14 @@ import { handleCreateWallet } from '@/actions/walletsActions'
 import { useWallets } from '@/hooks/useWallets'
 
 
+
 const AddWallet = () => {
 
     const [guzma, setGuzma] = React.useState('');
     const [error, setError] = React.useState(false);
     const [success, setSuccess] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
+
 
     
 
@@ -43,6 +46,8 @@ const AddWallet = () => {
         ) {
           setGuzma(window.localStorage.getItem("guzma")?? '');
         }
+        setSuccess(false);
+        setError(false);
       }, []);
 
     const formSchema = z.object({
@@ -67,7 +72,7 @@ const AddWallet = () => {
     const {mutate} = useWallets(guzma);
 
     async function submitHandler(data: z.infer<typeof formSchema>) {
-
+        setError(false)
         console.log(data);
         try {
             const uId = Number(guzma);
@@ -76,6 +81,11 @@ const AddWallet = () => {
             if(response){
                 console.log('Wallet added');
                 setSuccess(true);
+                setTimeout(() => {
+                    setSuccess(false);
+                    setOpen(false);
+                }, 2000);
+                
                 mutate();
             } else {
                 setError(true);
@@ -87,19 +97,26 @@ const AddWallet = () => {
         }
     }
 
+    // const openPrivyModal = () => {
+    //     console.log('Open privy modal');
+    // }
+
 
 
   return (
 
     
     <>
-        <Dialog>
-            <DialogTrigger>
+        <Dialog open={open}>
+            <DialogTrigger onClick={() => setOpen(true)}>
             
             <Card>
                 <CardContent className="flex flex-col items-center justify-center gap-5 min-h-56 w-48 border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45">
                     <Plus className='h-28 w-28'/>
+                    
                     Agregar wallet
+                    
+                    
                 </CardContent>
             </Card>
 
@@ -195,13 +212,13 @@ const AddWallet = () => {
                     </Form>
 
                 </section>
-                
+                 
                
                     
                     
                         
                 
-                {/* Cancelar boton */}
+                {/* Cancelar boton  */}
                 
             </DialogContent>
         </Dialog>

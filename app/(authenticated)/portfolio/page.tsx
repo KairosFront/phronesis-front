@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Avatar } from '@/components/ui/avatar'
 import { Carousel, CarouselNext, CarouselPrevious, CarouselContent, CarouselItem } from '@/components/ui/carousel'
@@ -16,7 +17,8 @@ const page = () => {
         <header className='relative mb-7 h-[28vh]'>
             <section className='dark:bg-gradient-to-r bg-gradient-to-l  from-green-dark/70 to-green-light/70 h-4/5 2xl:mx-[-7rem] mx-[-5rem] mt-[-5rem]'/> 
 
-            <Avatar className='absolute left-1 bottom-0 h-32 w-32 2xl:h-52 2xl:w-52 rounded-lg bg-white dark:bg-black border-8 border-green-dark'>
+            <Avatar className='absolute left-1 bottom-0 h-32 w-48 2xl:h-52 2xl:w-60 '>
+                <Image src='/landing/perfil.png' alt='avatar' layout='fill' />
                 
 
             </Avatar>

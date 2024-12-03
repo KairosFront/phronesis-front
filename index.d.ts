@@ -486,8 +486,16 @@ export type WalletManipulationBody = {
   idUsuario:number;
   wallet: string;
 }
+export type WalletsResponse = {
+        id: number;
+        id_usuarios: number;
+        wallet: string;
+        created_at: string;
+        updated_at: string;
+}
 
 export type Wallet = {
   id: number;
   address: string;
+  totalBalance: number;
 }

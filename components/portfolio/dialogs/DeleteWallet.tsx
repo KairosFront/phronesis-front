@@ -5,7 +5,8 @@ import { AlertDialog,
     AlertDialogFooter, 
     AlertDialogHeader, 
     AlertDialogContent, 
-    AlertDialogOverlay, 
+    AlertDialogOverlay,
+    AlertDialogAction, 
     
  } from '@/components/ui/alert-dialog'
 
@@ -37,7 +38,10 @@ const DeleteWallet = ({wallet, userId}: Props) => {
                 <p>¿Estás seguro de que deseas eliminar la wallet: {wallet}?</p>
                 <AlertDialogFooter>
                     <Button>Cancelar</Button>
-                    <Button onClick={onClick}>Eliminar</Button>
+                    <AlertDialogAction onClick={onClick}>
+                        Elminar
+                    </AlertDialogAction>
+                    
                 </AlertDialogFooter>
             </AlertDialogContent>
         </AlertDialogOverlay>

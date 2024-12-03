@@ -1,12 +1,12 @@
 'use server';
 import { AUTH_URL } from "./urls";
-import {WalletManipulationBody} from 'index';
+import {WalletsResponse, WalletManipulationBody} from 'index';
 
 export const getWalletsByUserId = async (userId: string) => {
     try {
         const response = await fetch(`${AUTH_URL}getWallets/${userId}`);
         const data = await response.json();
-        return data;       
+        return data as WalletsResponse[];       
     } catch (error: any) {
         throw new Error(error);
     }
