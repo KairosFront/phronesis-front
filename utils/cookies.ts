@@ -1,11 +1,12 @@
 "use server";
 import { cookies } from "next/headers";
 
-const cookiesStore = cookies();
+
 
 
 //Para setear
 export const setCookie = async (name: string, value: any) => {
+    const cookiesStore = await cookies();
     if (value != null) {
         try {
             // Verificar si la cookie ya existe
@@ -16,9 +17,7 @@ export const setCookie = async (name: string, value: any) => {
             }
 
             // Crear la cookie si no existe
-            cookiesStore.set(name, value, {
-                path: "/",
-            });
+            cookiesStore.set(name, value);
             console.log("Cookie creada");
             return true;
         } catch (err) {
@@ -30,7 +29,9 @@ export const setCookie = async (name: string, value: any) => {
 
 //Para borrar
 export const deleteCookie = async (name: string) => {
+    const cookiesStore = await cookies();
     try {
+        
         cookiesStore.delete(name);
         return true;
     } catch (err) {
@@ -39,8 +40,9 @@ export const deleteCookie = async (name: string) => {
 }
 // Para visualizar el valor
 export const getCookie = async (name: string) => {
+    const cookiesStore = await cookies();
     try {
-        const existingCookie = cookiesStore.get(name);
+        const existingCookie = cookiesStore.get(name)?.value;
         if (existingCookie) {
             return existingCookie;
         }

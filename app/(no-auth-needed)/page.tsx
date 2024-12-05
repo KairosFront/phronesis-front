@@ -62,11 +62,13 @@ const page = () => {
               </p>
 
               <CardFooter className="w-full">
+              <Link href="/login" className="text-lg">
                 <Button className="w-full">
-                  <Link href="/login" className="text-lg">
+                 
                     Entrar
-                  </Link>
+                  
                 </Button>
+                </Link>
               </CardFooter>
             </CardContent>
           </Card>

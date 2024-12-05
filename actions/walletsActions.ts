@@ -4,6 +4,8 @@ import { postWallet } from "@/services/backend/wallets";
 import { deleteWallet } from "@/services/backend/wallets";
 import { handleGetBalances } from "./portfolioActions";
 import { WalletsResponse } from "..";
+import { deleteCookie, setCookie } from "@/utils/cookies";
+import { redirect } from "next/navigation";
 
 //Talvez: traer las actions de portafolio para acceder a la suma de los balances generales 
 //por cada wallet y devolverlo en el handleGetWallets (crear nuevo objeto aca en el server actions)
@@ -49,6 +51,27 @@ export const handleDeleteWallet = async (userId: number, wallet: string) => {
     try {
         const response = await deleteWallet({ idUsuario: userId, wallet });
         return response;
+    } catch (error: any) {
+        throw new Error(error);
+    }
+}
+
+
+export const setWalletCookie = async (wallet: string) => {
+    try {
+        //Primero 
+        const response = await setCookie('wallet', wallet);
+        if(!response) {
+            await deleteCookie('wallet');
+            const response2 = await setCookie('wallet', wallet);
+            if(response2){
+                return true;
+            }
+
+        }
+        if(response){
+            return true;
+        }
     } catch (error: any) {
         throw new Error(error);
     }

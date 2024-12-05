@@ -1,9 +1,10 @@
 "use server";
 import { cookies } from "next/headers";
 
-const cookiesStore = cookies();
 
 export const createCookieUserId = async (id: any) => {
+  
+const cookiesStore = await cookies();
   if (id != null) {
     try {
       // Verificar si la cookie ya existe
@@ -28,6 +29,8 @@ export const createCookieUserId = async (id: any) => {
 };
 
 export const createCookiesWallets = async (wallet: any, chainType: any) => {
+  
+const cookiesStore = await cookies();
   if (wallet != null) {
     try {
       // Verificar si la cookie ya existe
@@ -56,6 +59,8 @@ export const createCookiesWallets = async (wallet: any, chainType: any) => {
 };
 
 export const deleteCookieUserId = async () => {
+  
+const cookiesStore = await cookies();
   try {
     cookiesStore.delete("userId");
     return true;

@@ -16,16 +16,32 @@ import {
 } from "@/components/ui/table";
 import TotalBalance from "@/components/portfolio/TotalBalance";
 import DefiPositionsCategories from "@/components/portfolio/defi/DefiPositionsCategories";
+import { getCookie } from "@/utils/cookies";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 
-interface pageProps {
-  params: {
-      wallet: string;
-  };
-}
+// interface pageProps {
+//   params: {
+//       wallet: string;
+//   };
+// }
 
-const page = ({params}: pageProps) => {
-  const wallet = params.wallet;
+const page = async () => {
+  const wallet = await getCookie("wallet");
+
+  if (!wallet) {
+    return (
+      <div className="text-center items-center justify-center w-4/5 xl:w-1/2 text-red-600 font-bold mt-10">
+        No estás visualizando ninguna wallet.
+        <Link href={'/portfolio'} className="w-1/6">
+          <Button>
+            Volver a portafolio!
+          </Button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -2,7 +2,7 @@ import { getUserData } from "@/services/backend/userData";
 import { cookies } from "next/headers";
 
 export const validateAccessToken = async () => {
-  const cookiesStore = cookies();
+  const cookiesStore = await  cookies();
   const accessToken = cookiesStore.get("accessToken")?.value;
   if (!accessToken) {
     throw new Error("No hay token de acceso");

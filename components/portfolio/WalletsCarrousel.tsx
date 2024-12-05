@@ -18,10 +18,14 @@ import {Wallet} from "@/index";
 import { CarouselItem } from "../ui/carousel";
 import DeleteWallet from "./dialogs/DeleteWallet";
 import { Button } from "../ui/button";
-import { handleCreateWallet } from "@/actions/walletsActions";
+import { handleCreateWallet, setWalletCookie } from "@/actions/walletsActions";
+import { useRouter } from "next/navigation";
 
 
 const WalletsCarrousel = () => {
+
+  const router = useRouter();
+
   const { user } = usePrivy();
 
   const wallet = user?.wallet?.address || user?.email?.address;
@@ -56,6 +60,15 @@ const WalletsCarrousel = () => {
 
   console.log(data)
 
+  const handleClickWallet = async (wallet: string) => {
+    const response = await setWalletCookie(wallet);
+
+    console.log('respuesta en el cliente de la cookie', response);
+    if (response) {
+      router.push("/portfolio/wallet");
+      
+    }
+  }
 
 
 
@@ -92,11 +105,11 @@ const WalletsCarrousel = () => {
     
               <CardContent className="font-extrabold flex flex-col justify-center gap-5 items-center">
               <Avatar className='rounded-full  bg-green-light/40 h-20 w-20 '/>
-                <Link href={`/portfolio/${wallet.address}`} className="hover:underline">
+                <p className="hover:underline cursor-pointer" onClick={() => handleClickWallet(wallet.address)}>
                   {(wallet.address?.length ?? 0 > 10)
                     ? `${wallet.address?.substring(0, 5)}...${wallet.address?.substring(wallet.address?.length - 3)}`
                     : wallet.address}
-                </Link>
+                </p>
                 <p>${wallet.totalBalance.toFixed(2).toLocaleString()}</p>
                 
               </CardContent>
