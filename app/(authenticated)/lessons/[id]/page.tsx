@@ -3,12 +3,12 @@ import NavbarLessons from "@/components/lessons/NavbarLessons";
 import { buscarLesson } from "@/utils/lessons/buscarLesson";
 
 interface PagePropsxd {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 const page = async ({ params }: PagePropsxd) => {
-  const numParam = parseInt(params.id);
+  const numParam = parseInt((await params).id);
   const leccion = await buscarLesson(numParam);
 
   return (

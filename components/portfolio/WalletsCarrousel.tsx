@@ -80,7 +80,7 @@ const WalletsCarrousel = () => {
         <>
           {wallets.length > 0  ? wallets.map((wallet) => (
             
-            <CarouselItem className='flex justify-center basis-1/3'>
+            <CarouselItem key={wallet.id} className='flex justify-center basis-1/3'>
                <Card className="p-5 h-56 w-48 relative border-grey-light/90 dark:bg-grey-light/10 dark:border-white/45 ">
               {/* <div className="rounded-full border absolute top-2 left-4 h-4 w-4">
                 <Avatar className=""/>

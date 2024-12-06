@@ -19,17 +19,18 @@ import { AnalysisCatalogs } from "@/index";
 import FormContainer from "@/components/analysis/FormContainer";
 import Link from "next/link";
 
-interface pageProps {
-  params: {
+interface Props {
+  params: Promise<{
     project: string;
     mode: "add" | "edit";
     cualid: string;
     cuantid: string;
-  };
+  }>
+  searchParams: Promise<any>;
 }
 
-const page = async ({ params }: pageProps) => {
-  const projectName = decodeURIComponent(params.project);
+const page = async ({ params }: Props) => {
+  const projectName = await decodeURIComponent((await params).project);
   const dropdownNeedsCualitative: any = await Promise.all([
     getAlianza(),
     getAuditorias(),
@@ -47,14 +48,17 @@ const page = async ({ params }: pageProps) => {
     getExchanges(),
   ]);
 
+  const resolvedParams = await params;
   const mode =
-    params.mode === "edit"
-      ? params.cualid === "0"
+    resolvedParams.mode === "edit"
+      ? resolvedParams.cualid === "0"
         ? "edit-cuant"
-        : params.cuantid === "0"
+        : resolvedParams.cuantid === "0"
           ? "edit-cual"
           : "edit-both"
       : "add";
+  const cualId = Number(resolvedParams.cualid);
+  const cuantId = Number(resolvedParams.cuantid);
   console.log(mode);
   return (
     <>
@@ -78,8 +82,8 @@ const page = async ({ params }: pageProps) => {
         <FormContainer
           data={[dropdownNeedsCualitative, dropdownNeedsCuantitative]}
           mode={mode}
-          cualId={Number(params.cualid)}
-          cuantId={Number(params.cuantid)}
+          cualId={cualId}
+          cuantId={cuantId}
         />
       </div>
     </>

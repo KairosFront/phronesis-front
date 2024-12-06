@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 interface Props {
-  searchParams?: {
+  searchParams?: Promise<{
     page?: string;
-  };
+  }>;
 }
 
 const Refresh = ({ searchParams }: Props) => {
@@ -26,12 +26,12 @@ const Refresh = ({ searchParams }: Props) => {
     a();
   }, [getAccessToken]);
 
-  const onRedirect = () => {
+  const onRedirect = async () => {
     if (token === null) {
       router.push("/");
     } else if (typeof token === "string") {
-      const redirectTo = searchParams?.page
-        ? `/${searchParams?.page}`
+      const redirectTo = (await searchParams)?.page
+        ? `/${(await searchParams)?.page}`
         : "/dashboard";
       router.push(redirectTo);
     }
